@@ -27,6 +27,7 @@ run_tests() {
     test_command="bundle exec $test_command"
   fi
 
+  echo "$test_command"
   $test_command
 }
 
