@@ -2,8 +2,9 @@
 
 ## Features:
 
-- `git lg` alias for very pretty git logs (thanks to
-  [Gary Bernhardt](https://github.com/garybernhardt)).
+- `git lg` alias for very pretty git logs.
+
+  Credits: [Gary Bernhardt](https://github.com/garybernhardt)
 
 - Other useful git aliases.
 
@@ -18,7 +19,9 @@
   - respects the Gemfile (if present)
   - generates ctags
 
-  (thanks to [Mislav Marohnić](https://github.com/mislav))
+  It requires [coral](https://github.com/mislav/coral).
+
+  Credits: [Mislav Marohnić](https://github.com/mislav)
 
 - A `test` executable, which you can integrate with your
   text editor. It
