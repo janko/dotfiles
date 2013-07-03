@@ -1,0 +1,33 @@
+#!/bin/bash
+
+set -e
+
+run_tests() {
+  local test_command
+
+  if [[ $1 =~ _spec.rb$ ]]; then
+
+    test_command="rspec $1 --color"
+    if [[ $2 =~ . ]]; then
+      test_command="$test_command --line-number $2"
+    fi
+
+  elif [[ $1 =~ .feature$ ]]; then
+
+    test_command="cucumber $1 --color --no-source --require features"
+    if [[ $2 =~ . ]]; then
+      test_command="$test_command --lines $2"
+    fi
+
+  fi
+
+  if [[ -f script/rails || -f bin/rails ]]; then
+    test_command="spring $test_command"
+  else
+    test_command="bundle exec $test_command"
+  fi
+
+  $test_command
+}
+
+run_tests $*
