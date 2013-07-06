@@ -19,4 +19,4 @@ set_prompt() {
   PS1="$user:$path[$git_branch$ruby_version]$ "
 }
 
-PROMPT_COMMAND='set_prompt'
+PROMPT_COMMAND="set_prompt; $PROMPT_COMMAND"
