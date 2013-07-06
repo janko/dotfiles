@@ -1,6 +1,6 @@
 source ~/bin/bash_colors.sh
 
-parse_git_branch() {
+get_git_branch() {
   echo `/usr/bin/git rev-parse --abbrev-ref HEAD`
 }
 
@@ -11,8 +11,8 @@ get_ruby_version() {
 set_prompt() {
   local user="$GREEN\u$RESET"
   local path="\w"
-  if [ -d .git ]; then
-    local git_branch="$RED`parse_git_branch`$RESET, "
+  if [[ -d .git ]]; then
+    local git_branch="$RED`get_git_branch`$RESET, "
   fi
   local ruby_version="$YELLOW`get_ruby_version`$RESET"
 
