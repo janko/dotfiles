@@ -23,7 +23,7 @@ pretty_git_log() {
 
   local format="$sha1}$relative_time}$author}$refs $subject"
 
-  git log --graph --pretty="tformat:${format}" $* |
+  git log --graph --no-color --pretty="tformat:${format}" $* |
     # Replace (2 years ago) with (2 years)
     sed -Ee 's/(^[^<]*) ago\)/\1)/' |
     # Replace (2 years, 5 months) with (2 years)
