@@ -9,14 +9,14 @@ get_ruby_version() {
 }
 
 set_prompt() {
-  local user="$GREEN\u$RESET"
+  local user="${GREEN}\u${RESET}"
   local path="\w"
   if [[ -d .git ]]; then
-    local git_branch="$RED`get_git_branch`$RESET, "
+    local git_branch="${RED}`get_git_branch`${RESET}, "
   fi
-  local ruby_version="$YELLOW`get_ruby_version`$RESET"
+  local ruby_version="${YELLOW}`get_ruby_version`${RESET}"
 
-  PS1="$user:$path[$git_branch$ruby_version]$ "
+  PS1="${user}:${path}[${git_branch}${ruby_version}]$ "
 }
 
-PROMPT_COMMAND="set_prompt; $PROMPT_COMMAND"
+PROMPT_COMMAND="set_prompt; ${PROMPT_COMMAND}"
