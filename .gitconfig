@@ -4,7 +4,8 @@
 [github]
   user = janko-m
 [alias]
-  st = status -sb # short and pretty status
+  # short and pretty status
+  st = status -sb
   aa = add --all
   co = checkout
   lg = "!. ~/bin/git_helpers.sh && pretty_git_log"
@@ -15,12 +16,18 @@
   rbc = rebase --continue
   rb = rebase
 [branch]
-  autosetuprebase = always # automatically rebase when pulling
+  # new branches are setup to use rebase when pulling
+  autosetuprebase = always
 [color]
+  # color the git diff in the shell
   ui = always
 [core]
+  # a global .gitignore
   excludesfile = ~/.gitignore
 [credential]
+  # use mac's keychain for storing credentials
   helper = osxkeychain
 [push]
+  # like "upstream", but refuses to push if the local and remote
+  # branch are named differently
   default = simple
