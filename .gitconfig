@@ -31,3 +31,6 @@
   # like "upstream", but refuses to push if the local and remote
   # branch are named differently
   default = simple
+[rebase]
+  # use "--autosquash" in "git rebase --interactive"
+  autosquash = true
