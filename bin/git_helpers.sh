@@ -14,7 +14,6 @@
 source ~/bin/bash_colors.sh
 
 pretty_git_log() {
-
   local sha1="%C(yellow)%h%Creset"
   local relative_time="%Cgreen(%ar)%Creset"
   local author="%C(bold blue)<%an>%Creset"
