@@ -27,7 +27,7 @@ run_tests() {
 
   if [[ -f script/rails || -f bin/rails ]]; then
     test_command="spring $test_command"
-  else
+  elif [[ -f Gemfile ]]
     test_command="bundle exec $test_command"
   fi
 
