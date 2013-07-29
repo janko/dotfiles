@@ -12,6 +12,10 @@ run_tests() {
       test_command="$test_command --line-number $2"
     fi
 
+  elif [[ $1 =~ _test.rb$ ]]; then
+
+    test_command="ruby $1"
+
   elif [[ $1 =~ .feature$ ]]; then
 
     test_command="cucumber $1 --color --no-source --require features"
