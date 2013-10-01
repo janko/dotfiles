@@ -23,6 +23,11 @@ run_tests() {
       test_command="$test_command --lines $2"
     fi
 
+  else
+
+    echo "Not a test file." 1>&2
+    exit
+
   fi
 
   if [[ -f script/rails || -f bin/rails ]]; then
