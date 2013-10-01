@@ -20,3 +20,6 @@ alias git="hub"
 # github.com/sstephenson/rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+
+# Don't less output from ri
+export RI="--no-pager"
