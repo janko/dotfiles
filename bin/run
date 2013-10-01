@@ -1,0 +1,22 @@
+#!/bin/bash
+
+set -e
+
+run_file() {
+  if [[ $1 =~ .rb$ ]]; then
+
+    if [[ -f Gemfile ]]; then
+      bundle exec ruby $1
+    else
+      ruby $1
+    fi
+
+  elif [[ $1 =~ .cpp$ ]]; then
+
+    g++ $1 -o program
+    ./program
+
+  fi
+}
+
+run_file $*
