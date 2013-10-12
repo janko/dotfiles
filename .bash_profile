@@ -24,4 +24,5 @@ eval "$(rbenv init -)"
 # Don't less output from ri
 export RI="--no-pager"
 
+# List files vertically
 alias ls="ls -1"
