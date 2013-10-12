@@ -11,6 +11,11 @@ run_file() {
       ruby $1
     fi
 
+  elif [[ $1 =~ .c$ ]]; then
+
+    gcc $1 -o program
+    ./program
+
   elif [[ $1 =~ .cpp$ ]]; then
 
     g++ $1 -o program
