@@ -21,6 +21,10 @@ run_file() {
     g++ $1 -o program
     ./program
 
+  else
+
+    ./$1
+
   fi
 }
 
