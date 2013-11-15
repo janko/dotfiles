@@ -21,6 +21,12 @@ run_file() {
     g++ $1 -o program
     ./program
 
+  elif [[ $1 =~ .l$ ]]; then
+
+    flex $1
+    gcc lex.yy.c -o program
+    ./program < $1
+
   else
 
     ./$1
