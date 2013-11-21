@@ -13,4 +13,12 @@ module Spring
     Spring.register_command "rspec", RSpec.new
     Spring::Commands::Rake.environment_matchers[/^spec($|:)/] = "test"
   end
+
+  module Client
+    class Binstub < Command
+      def bindir
+        env.root.join(".binstubs")
+      end
+    end
+  end
 end
