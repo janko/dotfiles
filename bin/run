@@ -13,12 +13,22 @@ run_file() {
 
   elif [[ $1 =~ .c$ ]]; then
 
-    gcc $1 -o program
+    if [[ $(cat $1) =~ glut.h ]]; then
+      gcc $1 -o program -framework OpenGL -framework GLUT -w
+    else
+      gcc $1 -o program
+    fi
+
     ./program
 
   elif [[ $1 =~ .cpp$ ]]; then
 
-    g++ $1 -o program
+    if [[ $(cat $1) =~ glut.h ]]; then
+      g++ $1 -o program -framework OpenGL -framework GLUT -w
+    else
+      g++ $1 -o program
+    fi
+
     ./program
 
   elif [[ $1 =~ .l$ ]]; then
