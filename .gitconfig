@@ -22,7 +22,7 @@
   autosetuprebase = always
 [color]
   # color the git diff in the shell
-  ui = always
+  ui = auto
 [core]
   # a global .gitignore
   excludesfile = ~/.gitignore
