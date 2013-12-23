@@ -1,2 +1,2 @@
 # Requires the 'pry-theme' gem
-Pry.config.theme = "railscasts"
+Pry.config.theme = "vwilight"
