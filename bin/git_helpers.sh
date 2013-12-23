@@ -29,8 +29,6 @@ pretty_git_log() {
     sed -Ee 's/(^[^<]*), [[:digit:]]+ .*months?\)/\1)/' |
     # Line columns up based on } delimiter
     column -s '}' -t |
-    # Color merge commits specially
-    sed -Ee "s/(Merge branch .* into .*$)/$(printf $RED)\1$(printf $RESET)/" |
     # Page only if we need to
     less -FXRS
 }
