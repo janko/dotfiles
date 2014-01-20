@@ -1,3 +1,6 @@
+require "spring/client"
+require "spring/commands"
+
 module Spring
   module Commands
     class RSpec
@@ -14,11 +17,9 @@ module Spring
     Spring::Commands::Rake.environment_matchers[/^spec($|:)/] = "test"
   end
 
-  module Client
-    class Binstub < Command
-      def bindir
-        env.root.join(".binstubs")
-      end
+  class CommandWrapper
+    def binstub_name
+      ".binstubs/#{name}"
     end
   end
 end
