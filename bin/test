@@ -23,6 +23,10 @@ run_tests() {
       test_command="$test_command --lines $2"
     fi
 
+  elif [[ $1 =~ spec(.js)?.coffee$ ]]; then
+
+    test_command="jasmine-node $1 --coffee --color"
+
   else
 
     echo "Not a test file." 1>&2
