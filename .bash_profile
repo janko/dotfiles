@@ -27,4 +27,5 @@ export RI="--no-pager"
 # List files vertically
 alias ls="ls -1"
 
-export PATH=".binstubs:$PATH"
+# github.com/zimbatm/direnv
+eval "$(direnv hook $0)"

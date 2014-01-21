@@ -1,5 +1,4 @@
 require "spring/client"
-require "spring/commands"
 
 module Spring
   module Commands
@@ -15,11 +14,5 @@ module Spring
 
     Spring.register_command "rspec", RSpec.new
     Spring::Commands::Rake.environment_matchers[/^spec($|:)/] = "test"
-  end
-
-  class CommandWrapper
-    def binstub_name
-      ".binstubs/#{name}"
-    end
   end
 end
