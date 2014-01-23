@@ -26,5 +26,7 @@ export RI="--no-pager"
 # List files vertically
 alias ls="ls -1"
 
+export GOROOT="/usr/local/Cellar/go/1.2/libexec"
+
 # github.com/zimbatm/direnv
 eval "$(direnv hook $0)"
