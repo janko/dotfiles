@@ -3,7 +3,6 @@ for file in ~/bin/*.sh; do
 done
 
 export EDITOR="vim"
-export GEM_EDITOR="vim" # for ~/bin/dive.sh
 
 # Disable Ctrl-s, so I can use surround.vim
 stty -ixon
