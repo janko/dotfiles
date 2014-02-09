@@ -1,0 +1,20 @@
+#!/bin/bash
+
+socket="/tmp/pair"
+
+# create new shared pair server (detached)
+tmux -S $socket new-session -d -s pair
+chmod 777 $socket
+
+# do port forwarding
+tmux -S $socket send-keys 'echo "Setting up port forwarding for remote session."' 'C-m'
+tmux -S $socket send-keys 'while true; do ssh pair; done' 'C-m'
+
+# open a new window with sharing instructions
+tmux -S $socket new-window
+
+# Add instruction how to disconnect from the session
+tmux -S $socket set status-right "Disconnect with 'Ctrl-b + d' "
+
+# attach to the pair session
+tmux -S $socket attach
