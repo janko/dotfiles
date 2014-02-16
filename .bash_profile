@@ -1,3 +1,9 @@
+# Enable resourcing .bash_profile without duplicating paths PATH
+if [ -x /usr/libexec/path_helper ]; then
+  PATH=''
+  eval `/usr/libexec/path_helper -s`
+fi
+
 for file in ~/bin/*.sh; do
   source "$file"
 done
