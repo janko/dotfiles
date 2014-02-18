@@ -37,3 +37,8 @@ export GOROOT="/usr/local/Cellar/go/1.2/libexec"
 
 # Add Bundler's binstubs directory to PATH
 export PATH="./bin:$PATH"
+
+# Start tmux when the shell opens
+if [[ -z $TMUX ]]; then
+  tmux new-session
+fi
