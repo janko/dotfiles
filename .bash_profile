@@ -1,4 +1,4 @@
-# Enable resourcing .bash_profile without duplicating paths PATH
+# Enable resourcing .bash_profile without duplicating PATH entries
 if [ -x /usr/libexec/path_helper ]; then
   PATH=''
   eval `/usr/libexec/path_helper -s`
@@ -35,4 +35,5 @@ alias ls="ls -1"
 # For the Go language
 export GOROOT="/usr/local/Cellar/go/1.2/libexec"
 
+# Add Bundler's binstubs directory to PATH
 export PATH="./bin:$PATH"
