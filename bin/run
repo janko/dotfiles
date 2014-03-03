@@ -11,6 +11,10 @@ run_file() {
       ruby $1
     fi
 
+  elif [[ $1 =~ .py$ ]]; then
+
+    python $1
+
   elif [[ $1 =~ .c$ ]]; then
 
     if [[ $(cat $1) =~ glut.h ]]; then
