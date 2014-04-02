@@ -43,6 +43,13 @@ run_file() {
     gcc lex.yy.c -o program
     ./program < $1
 
+  elif [[ $1 =~ .tex$ ]]; then
+
+    # `brew install rubber` (https://launchpad.net/rubber)
+    rubber --pdf --inplace $1
+
+    open "${1%.tex}.pdf"
+
   else
 
     ./$1
