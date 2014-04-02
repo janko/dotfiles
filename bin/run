@@ -3,6 +3,8 @@
 set -e
 
 run_file() {
+  clear
+
   if [[ $1 =~ .rb$ ]]; then
 
     if [[ -f Gemfile ]]; then

@@ -34,6 +34,7 @@ run_tests() {
 
   fi
 
+  clear
   echo "$test_command"
   $test_command
 }
