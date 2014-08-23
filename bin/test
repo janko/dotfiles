@@ -7,9 +7,9 @@ run_tests() {
 
   if [[ $1 =~ _spec.rb$ ]]; then
 
-    test_command="rspec $1 --color"
+    test_command="rspec $1"
     if [[ $2 =~ . ]]; then
-      test_command="$test_command --line-number $2"
+      test_command="$test_command:$2"
     fi
 
   elif [[ $1 =~ _test.rb$ ]]; then
@@ -18,9 +18,9 @@ run_tests() {
 
   elif [[ $1 =~ .feature$ ]]; then
 
-    test_command="cucumber $1 --color --no-source --require features"
+    test_command="cucumber $1"
     if [[ $2 =~ . ]]; then
-      test_command="$test_command --lines $2"
+      test_command="$test_command:$2"
     fi
 
   elif [[ $1 =~ spec(.js)?.coffee$ ]]; then
