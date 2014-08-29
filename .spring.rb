@@ -30,4 +30,19 @@ module Spring
     Spring.register_command "cucumber", Cucumber.new
     Spring::Commands::Rake.environment_matchers[/^cucumber($|:)/] = "test"
   end
+
+  module Commands
+    class Thor
+      def env(*)
+        "development"
+      end
+
+      def exec_name
+        "thor"
+      end
+    end
+
+    Spring.register_command "thor", Thor.new
+    Spring::Commands::Rake.environment_matchers[/^thor($|:)/] = "development"
+  end
 end
