@@ -40,8 +40,3 @@ export PATH="./bin:$PATH"
 
 export CLICOLOR=1
 export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
-
-# Start tmux when the shell opens
-if [[ -z $TMUX ]]; then
-  tmux new-session
-fi
