@@ -1,7 +1,7 @@
 source ~/bin/bash_colors.sh
 
 get_git_branch() {
-  echo `/usr/bin/git rev-parse --abbrev-ref HEAD 2>/dev/null`
+  echo `/usr/local/bin/git rev-parse --abbrev-ref HEAD 2>/dev/null`
 }
 
 get_ruby_version() {
