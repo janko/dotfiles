@@ -8,7 +8,7 @@ run_tests() {
   if [[ $1 =~ _spec.rb$ ]]; then
 
     test_command="rspec $1"
-    if [[ $2 =~ . ]]; then
+    if [[ $2 =~ . ]] && [[ $2 != 1 ]]; then
       test_command="$test_command:$2"
     fi
 
@@ -19,7 +19,7 @@ run_tests() {
   elif [[ $1 =~ .feature$ ]]; then
 
     test_command="cucumber $1"
-    if [[ $2 =~ . ]]; then
+    if [[ $2 =~ . ]] && [[ $2 != 1 ]]; then
       test_command="$test_command:$2"
     fi
 
