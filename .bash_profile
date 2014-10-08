@@ -4,6 +4,10 @@ if [ -x /usr/libexec/path_helper ]; then
   eval `/usr/libexec/path_helper -s`
 fi
 
+# github.com/sstephenson/rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init - --no-rehash)"
+
 for file in ~/bin/*.sh; do
   source "$file"
 done
@@ -21,10 +25,6 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 # github.com/defunkt/hub
 alias git="hub"
-
-# github.com/sstephenson/rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
 
 # Don't less output from ri
 export RI="--no-pager"
