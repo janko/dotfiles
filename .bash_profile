@@ -17,9 +17,6 @@ export EDITOR="vim"
 # Disable Ctrl-s, so I can use surround.vim
 stty -ixon
 
-# github.com/mislav/coral
-eval "$(~/.coral/libexec/coral init -)"
-
 # Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
