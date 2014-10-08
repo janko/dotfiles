@@ -13,7 +13,6 @@ module Spring
     end
 
     Spring.register_command "rspec", RSpec.new
-    Spring::Commands::Rake.environment_matchers[/^spec($|:)/] = "test"
   end
 
   module Commands
@@ -28,7 +27,6 @@ module Spring
     end
 
     Spring.register_command "cucumber", Cucumber.new
-    Spring::Commands::Rake.environment_matchers[/^cucumber($|:)/] = "test"
   end
 
   module Commands
@@ -43,6 +41,5 @@ module Spring
     end
 
     Spring.register_command "thor", Thor.new
-    Spring::Commands::Rake.environment_matchers[/^thor($|:)/] = "development"
   end
 end
