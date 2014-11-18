@@ -34,5 +34,6 @@ export PATH="~/bin:$PATH"
 # Add Bundler's binstubs directory to PATH
 export PATH="./bin:$PATH"
 
+# Prettier `ls` colors
 export CLICOLOR=1
 export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"

@@ -3,3 +3,5 @@ tags
 tmp/*
 .bundle
 .ackrc
+TODO.md
+*.pyc
