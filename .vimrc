@@ -177,9 +177,6 @@ set complete-=t
 set runtimepath+=$GOROOT/misc/vim
 
 if has("autocmd")
-  " Automatically source .vimrc after saving it
-  au BufWritePost *vimrc source $MYVIMRC
-
   " Avoid showing trailing whitespace when in insert mode
   au InsertEnter * :set listchars-=trail:•
   au InsertLeave * :set listchars+=trail:•
