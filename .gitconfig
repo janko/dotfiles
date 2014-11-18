@@ -11,7 +11,6 @@
   lg = "!. ~/bin/git_helpers.sh && pretty_git_log"
   r = "!git lg -30"
   last = "!git lg -1"
-  unstage = reset HEAD --
   ci = commit
   rbc = rebase --continue
   rb = rebase

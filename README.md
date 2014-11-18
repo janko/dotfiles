@@ -1,34 +1,51 @@
 # Dotfiles
 
-## Features:
+## General
 
-- `git lg` alias for very pretty git logs.
+* Pretty shell prompt
+  - displays current ruby version (if you're using rbenv)
+  - displays current git branch (if you're in a Git project)
+  - uses colors
 
-  Credits: [Gary Bernhardt](https://github.com/garybernhardt)
+* Colored `ls`
 
-- Other useful git aliases.
+## Scripts
 
-- Pretty shell prompt. It displays
+* `bin/dive` -- opens a Ruby gem in your `$EDITOR`
+  - in Bundler projects acts like `bundle open`
+  - otherwise acts like [`gem open`](https://github.com/tpope/gem-browse).
+  - allows typing only first few letters of the gem name
 
-  - your ruby version (if you're using rbenv)
-  - your current git branch (if you're in a Git project).
+* `bin/run` -- runs a lot of types of files (Ruby, Python, C, C++, Lex, Tex,
+  Shell etc)
 
-- A `dive` command, which "dives" into the code
-  of a specified Ruby gem. It
+## Git
 
-  - respects the Gemfile (if present)
-  - generates ctags
+* Git/[Hub](https://github.com/github/hub) completion
 
-  It requires [coral](https://github.com/mislav/coral).
+* Useful Git aliases
 
-  Credits: [Mislav Marohnić](https://github.com/mislav)
+  | Alias     | Command                                                                                  |
+  | --------- | ---------------------------------------------------------------------------------------- |
+  | `git lg`  | [pretty git log](https://www.destroyallsoftware.com/screencasts/catalog/pretty-git-logs) |
+  | `git st`  | `git status -sb`                                                                         |
+  | `git aa`  | `git add --all`                                                                          |
+  | `git co`  | `git checkout`                                                                           |
+  | `git r`   | `git lg -30` ("recent")                                                                  |
+  | `git ci`  | `git commit`                                                                             |
+  | `git rbc` | `git rebase --continue`                                                                  |
+  | `git br`  | `git branch`                                                                             |
+  | `git d`   | `git diff`                                                                               |
 
-- A `test` executable, which you can integrate with your
-  text editor. It
+## Tmux
 
-  - recognizes RSpec and Cucumber files
-  - uses [Spring](https://github.com/jonleighton/spring)
-    (in Rails projects)
+* `C-a` for prefix
+* Pretty colored prompt
+* `prefix + M` -- Opens `man` page in a split window
+* `prefix + O` -- Opens a Ruby gem in a split window (using `bin/dive`)
+* Lots of useful [tmux plugins](https://github.com/tmux-plugins) loaded with
+  [tmux plugin manager](https://github.com/tmux-plugins/tpm)
 
-  Checkout my [.vimrc](https://github.com/janko-m/vimfiles/blob/master/vimrc)
-  to see how you can intergrate it with Vim.
+## Vim
+
+* Look for [yourself](/.vimrc) :smiley:
