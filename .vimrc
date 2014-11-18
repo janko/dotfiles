@@ -231,14 +231,16 @@ nmap <leader>v :tabedit $MYVIMRC<CR>
 nmap <leader>o :!open %<CR>
 
 " alignment mappings
-nmap <leader>a{ :Tabularize /{<CR>
-vmap <leader>a{ :Tabularize /{<CR>
-nmap <leader>a: :Tabularize /:\zs/l0l1<CR>
-vmap <leader>a: :Tabularize /:\zs/l0l1<CR>
-nmap <leader>a, :Tabularize /,\zs/l0l1<CR>
-vmap <leader>a, :Tabularize /,\zs/l0l1<CR>
-nmap <leader>a> :Tabularize /=><CR>
-vmap <leader>a> :Tabularize /=><CR>
+nmap <leader>a{  :Tabularize /{<CR>
+vmap <leader>a{  :Tabularize /{<CR>
+nmap <leader>a\| :Tabularize /\|<CR>
+vmap <leader>a\| :Tabularize /\|<CR>
+nmap <leader>a:  :Tabularize /:\zs/l0l1<CR>
+vmap <leader>a:  :Tabularize /:\zs/l0l1<CR>
+nmap <leader>a,  :Tabularize /,\zs/l0l1<CR>
+vmap <leader>a,  :Tabularize /,\zs/l0l1<CR>
+nmap <leader>a>  :Tabularize /=><CR>
+vmap <leader>a>  :Tabularize /=><CR>
 
 " Shortcuts for testing
 nmap <leader>w :TestNearest<CR>
