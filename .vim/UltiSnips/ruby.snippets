@@ -1,0 +1,75 @@
+snippet defi
+def initialize$1
+	${0:# code}
+end
+endsnippet
+
+snippet res
+begin
+	${1:${VISUAL:# code}}
+rescue $2
+	${0:# rescue}
+end
+endsnippet
+
+# Iterating
+
+snippet "(\S+)\.e" "" r
+`!p snip.rv = match.group(1)`.each do |$1|
+	${0:# code}
+end
+endsnippet
+
+snippet "(\S+)\.E" "" r
+`!p snip.rv = match.group(1)`.each { |$1| ${0:# code} }
+endsnippet
+
+snippet "(\S+)\.m" "" r
+`!p snip.rv = match.group(1)`.map do |$1|
+	${0:# code}
+end
+endsnippet
+
+snippet "(\S+)\.M" "" r
+`!p snip.rv = match.group(1)`.map { |$1| ${0:# code} }
+endsnippet
+
+# RSpec
+
+snippet it
+it "$1" do
+	${0:${VISUAL:# assertions}}
+end
+endsnippet
+
+snippet des
+describe "$1" do
+	${0:${VISUAL:# describe}}
+end
+endsnippet
+
+snippet con
+context "$1" do
+	${0:${VISUAL:# context}}
+end
+endsnippet
+
+# Cucumber
+
+snippet G
+Given(/^$1$/) do
+	${0:${VISUAL:# code}}
+end
+endsnippet
+
+snippet W
+When(/^$1$/) do
+	${0:${VISUAL:# code}}
+end
+endsnippet
+
+snippet T
+Then(/^$1$/) do
+	${0:${VISUAL:# code}}
+end
+endsnippet

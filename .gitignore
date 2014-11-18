@@ -1,7 +1,14 @@
-*.DS_Store
+# General
+.DS_Store
 tags
 tmp/*
 .bundle
+*.pyc
+
+# Setup
 .ackrc
 TODO.md
-*.pyc
+
+# Vimfiles (only for this repo)
+.vim/bundle
+.vim/.netrwhist
