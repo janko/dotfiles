@@ -14,6 +14,9 @@ done
 
 export EDITOR="vim"
 
+# Disable Ctrl-s, so I can use surround.vim
+stty -ixon
+
 # Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
