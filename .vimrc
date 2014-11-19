@@ -183,7 +183,10 @@ if has("autocmd")
   " https://github.com/sstephenson/bats
   au BufNewFile,BufRead *.bats setf sh
 
-  au BufReadPost * call JumpToLastPosition()
+  " Remember last location in file, but not for commit messages.
+  " see :help last-position-jump
+  au BufReadPost * if &filetype !~ '^git\c' && line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal! g`\"" | endif
 
   " mark Jekyll YAML frontmatter as comment
   au BufNewFile,BufRead *.{md,markdown,html,xml} sy match Comment /\%^---\_.\{-}---$/
@@ -201,16 +204,6 @@ if has("autocmd")
   " enable .ejs files (Sprockets)
   au BufNewFile,BufRead *.ejs setf html
 endif
-
-" Remember last location in file, but not for commit messages.
-" see :help last-position-jump
-function! JumpToLastPosition()
-  if &filetype !~ '^git\c'
-    if line("'\"") > 0 && line("'\"") <= line("$")
-      execute "normal! g`\""
-    endif
-  endif
-endfunction
 
 
 """""""""""""""""""
