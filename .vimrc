@@ -3,8 +3,8 @@
 ""   Gary Bernhardt  <destroyallsoftware.com>
 ""   Drew Neil  <vimcasts.org>
 ""   Tim Pope  <tbaggery.com>
-""   Janus  <github.com/carlhuda/janus>
 ""   Mislav Marohnić  <mislav.uniqpath.com>
+""   Bruno Sutic  <github.com/bruno->
 ""
 
 set nocompatible
