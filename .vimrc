@@ -10,14 +10,6 @@
 set nocompatible
 set exrc " load vimrc from current directory
 
-" Neovim python support (for clipboard)
-"
-" - `pip install neovim`
-" - `pip install xerox`
-if has('nvim')
-  runtime! python_setup.vim
-endif
-
 """""""""""
 " PLUGINS "
 """""""""""
