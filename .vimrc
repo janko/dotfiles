@@ -262,12 +262,6 @@ xmap <leader>xc <Plug>(seeing_is_believing-clean)
 " easier access to clipboard register
 map + "+
 
-" disable cursor keys in normal mode
-map <Left>  :echo "no!"<cr>
-map <Right> :echo "no!"<cr>
-map <Up>    :echo "no!"<cr>
-map <Down>  :echo "no!"<cr>
-
 " to not have to use arrow keys for recalling commands from history
 cmap <C-p> <Up>
 cmap <C-n> <Down>
