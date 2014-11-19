@@ -174,8 +174,8 @@ set runtimepath+=$GOROOT/misc/vim
 
 if has("autocmd")
   " Avoid showing trailing whitespace when in insert mode
-  au InsertEnter * :set listchars-=trail:•
-  au InsertLeave * :set listchars+=trail:•
+  au InsertEnter * set listchars-=trail:•
+  au InsertLeave * set listchars+=trail:•
 
   " Treat JSON files like JavaScript
   au BufNewFile,BufRead *.json setf javascript
