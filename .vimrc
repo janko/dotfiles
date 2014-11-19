@@ -50,8 +50,12 @@ Plugin 'godlygeek/tabular'
 Plugin 'tpope/vim-surround'
 Plugin 'bruno-/vim-vertical-move'
 Plugin 'AndrewRadev/splitjoin.vim'
-Plugin 'SirVer/ultisnips'
 Plugin 'tommcdo/vim-exchange'
+
+" Snippets (first two are dependencies)
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
 
 " Text objects
 Plugin 'bruno-/vim-space'
@@ -207,11 +211,6 @@ if has("autocmd")
 
   " enable .ejs files (Sprockets)
   au BufNewFile,BufRead *.ejs setf html
-
-  au FileType snippets
-    \ let b:endwise_addition = 'endsnippet' |
-    \ let b:endwise_words = 'snippet' |
-    \ let b:endwise_syngroups = 'snipSnippetHeaderKeyword'
 endif
 
 
@@ -293,11 +292,6 @@ nmap ]oa :set formatoptions-=a<CR>
 
 " toggle the current fold
 nmap <Space> za
-
-" UltiSnips
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " :Qargs - populate arglist list with quickfixlist buffers {{{2
 

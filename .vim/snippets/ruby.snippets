@@ -1,0 +1,24 @@
+extends rspec, cucumber
+
+snippet defi
+	def initialize${1}
+		${0:# code}
+	end
+snippet res
+	begin
+		${VISUAL:# code}
+	rescue ${2}
+		${0:# rescue}
+	end
+snippet e
+	each do |${1}|
+		${0:# code}
+	end
+snippet E
+	each { |${1}| ${0:# code} }
+snippet m
+	map do |${1}|
+		${0:# code}
+	end
+snippet M
+	map { |${1}| ${0:# code} }
