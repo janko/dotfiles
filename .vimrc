@@ -216,9 +216,6 @@ let mapleader=","
 " toggle between last open buffers
 nmap <leader><leader> <c-^>
 
-" open vimrc in a new tab
-nmap <leader>v :tabedit $MYVIMRC<CR>
-
 " open a file
 nmap <leader>o :!open %<CR>
 
