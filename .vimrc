@@ -34,6 +34,7 @@ Plugin 'tpope/vim-obsession'
 Plugin 'mileszs/ack.vim'
 Plugin 'nelstrom/vim-visual-star-search'
 Plugin 'tpope/vim-abolish'
+Plugin 'nelstrom/vim-qargs'
 
 " Editing
 Plugin 'tpope/vim-endwise'
@@ -284,21 +285,6 @@ nmap ]oa :set formatoptions-=a<CR>
 
 " toggle the current fold
 nmap <Space> za
-
-" :Qargs - populate arglist list with quickfixlist buffers {{{2
-
-" Convenient for executing an `argdo` on all buffers that are a result
-" of a grep search.
-" https://github.com/nelstrom/vim-qargs/
-command! -bar Qargs execute 'args' QuickfixFilenames()
-function! QuickfixFilenames()
-  " Building a hash ensures we get each buffer only once
-  let buffer_numbers = {}
-  for quickfix_item in getqflist()
-    let buffer_numbers[quickfix_item['bufnr']] = bufname(quickfix_item['bufnr'])
-  endfor
-  return join(map(values(buffer_numbers), 'fnameescape(v:val)'))
-endfunction
 
 
 """""""""""""""""""""""""""""
