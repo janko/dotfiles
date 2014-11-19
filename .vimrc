@@ -216,7 +216,7 @@ let mapleader=","
 nmap <leader><leader> <c-^>
 
 " open a file
-nmap <leader>o :!open %<CR>
+nmap <leader>o :call system("open " . expand("%"))<CR>
 
 " alignment mappings
 nmap <leader>a{  :Tabularize /{<CR>
