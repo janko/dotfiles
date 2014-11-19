@@ -230,11 +230,6 @@ vmap <leader>a,  :Tabularize /,\zs/l0l1<CR>
 nmap <leader>a>  :Tabularize /=><CR>
 vmap <leader>a>  :Tabularize /=><CR>
 
-" Shortcuts for testing
-nmap <leader>w :TestNearest<CR>
-nmap <leader>t :TestFile<CR>
-nmap <leader>T :TestSuite<CR>
-
 " Shortcut for running files
 nmap <leader>r :exec ":!~/bin/run " . expand("%")<cr>
 
