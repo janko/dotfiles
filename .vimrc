@@ -14,90 +14,87 @@ set exrc " load vimrc from current directory
 " PLUGINS "
 """""""""""
 
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
+source ~/.vim/bundle/vim-plug/plug.vim
 
-call vundle#begin()
-
-Plugin 'gmarik/Vundle.vim'
+call plug#begin("~/.vim/bundle")
 
 " Sensible defaults
-Plugin 'tpope/vim-sensible'
+Plug 'tpope/vim-sensible'
 
 " File/buffer management
-Plugin 'tpope/vim-vinegar'
-Plugin 'tpope/vim-eunuch'
-Plugin 'tpope/vim-projectionist'
-Plugin 'tpope/vim-obsession'
+Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-projectionist'
+Plug 'tpope/vim-obsession'
 
 " Searching
-Plugin 'mileszs/ack.vim'
-Plugin 'nelstrom/vim-visual-star-search'
-Plugin 'tpope/vim-abolish'
-Plugin 'nelstrom/vim-qargs'
+Plug 'mileszs/ack.vim'
+Plug 'nelstrom/vim-visual-star-search'
+Plug 'tpope/vim-abolish'
+Plug 'nelstrom/vim-qargs'
 
 " Editing
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-commentary'
-Plugin 'godlygeek/tabular'
-Plugin 'tpope/vim-surround'
-Plugin 'bruno-/vim-vertical-move'
-Plugin 'AndrewRadev/splitjoin.vim'
-Plugin 'tommcdo/vim-exchange'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-commentary'
+Plug 'godlygeek/tabular'
+Plug 'tpope/vim-surround'
+Plug 'bruno-/vim-vertical-move'
+Plug 'AndrewRadev/splitjoin.vim'
+Plug 'tommcdo/vim-exchange'
 
 " Snippets (first two are dependencies)
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'garbas/vim-snipmate'
 
 " Text objects
-Plugin 'bruno-/vim-space'
-Plugin 'kana/vim-textobj-user'
-Plugin 'kana/vim-textobj-entire'
-Plugin 'wellle/targets.vim'
+Plug 'bruno-/vim-space'
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-entire'
+Plug 'wellle/targets.vim'
 
 " Git, GitHub
-Plugin 'airblade/vim-gitgutter'
-Plugin 'junegunn/vim-emoji'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-rhubarb'
+Plug 'airblade/vim-gitgutter'
+Plug 'junegunn/vim-emoji'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 
 " Misc
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-scriptease'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'tpope/vim-dispatch'
-Plugin 'tpope/vim-characterize'
-Plugin 'bruno-/vim-husk'
-Plugin 'justinmk/vim-gtfo'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-scriptease'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-characterize'
+Plug 'bruno-/vim-husk'
+Plug 'justinmk/vim-gtfo'
 
 " Languages
-Plugin 'othree/html5.vim'
-Plugin 'AndrewRadev/vim-eco'
-Plugin 'slim-template/vim-slim'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'chriseppstein/vim-haml'
-Plugin 'pangloss/vim-javascript'
-Plugin 'tpope/vim-markdown'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'tmux-plugins/vim-tmux'
+Plug 'othree/html5.vim'
+Plug 'AndrewRadev/vim-eco'
+Plug 'slim-template/vim-slim'
+Plug 'vim-ruby/vim-ruby'
+Plug 'chriseppstein/vim-haml'
+Plug 'pangloss/vim-javascript'
+Plug 'tpope/vim-markdown'
+Plug 'kchmck/vim-coffee-script'
+Plug 'elixir-lang/vim-elixir'
+Plug 'tmux-plugins/vim-tmux'
 
 " HTML
-Plugin 'tpope/vim-ragtag'
+Plug 'tpope/vim-ragtag'
 
 " Ruby
-Plugin 'tpope/vim-bundler'
-Plugin 'tpope/vim-rake'
-Plugin 't9md/vim-ruby-xmpfilter'
-Plugin 'tpope/vim-rails'
-Plugin 'file:///Users/janko/Code/vim-test'
+Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-rake'
+Plug 't9md/vim-ruby-xmpfilter'
+Plug 'tpope/vim-rails'
+Plug '/Users/janko/Code/vim-test'
 
 " Vim testing frameworks
-Plugin 'kana/vim-vspec'
-Plugin 'junegunn/vader.vim'
+Plug 'kana/vim-vspec'
+Plug 'junegunn/vader.vim'
 
-call vundle#end()
+call plug#end()
 
 """""""""""""""""""""""""
 " GENERAL CONFIGURATION "
