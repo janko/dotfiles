@@ -18,77 +18,76 @@ source ~/.vim/bundle/vim-plug/plug.vim
 
 call plug#begin("~/.vim/bundle")
 
-" Sensible defaults
-Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-sensible'              " sensible defaults
 
 " File/buffer management
-Plug 'tpope/vim-vinegar'
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-projectionist'
-Plug 'tpope/vim-obsession'
+Plug 'tpope/vim-vinegar'               " nicely enhances Netrw
+Plug 'tpope/vim-eunuch'                " Unix-like commands (:Remove, :Rename, ...)
+Plug 'tpope/vim-projectionist'         " define connections between files
+Plug 'tpope/vim-obsession'             " saves Vim session to a file
 
 " Searching
-Plug 'mileszs/ack.vim'
-Plug 'nelstrom/vim-visual-star-search'
-Plug 'tpope/vim-abolish'
-Plug 'nelstrom/vim-qargs'
+Plug 'mileszs/ack.vim'                 " vim wrapper around ack
+Plug 'nelstrom/vim-visual-star-search' " * and # in visual mode
+Plug 'tpope/vim-abolish'               " handles case styles (camelCase, MixedCase, ...)
+Plug 'nelstrom/vim-qargs'              " :Qargs - populates arglist with quickfix items
 
 " Editing
-Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-commentary'
-Plug 'godlygeek/tabular'
-Plug 'tpope/vim-surround'
-Plug 'bruno-/vim-vertical-move'
-Plug 'AndrewRadev/splitjoin.vim'
-Plug 'tommcdo/vim-exchange'
+Plug 'tpope/vim-endwise'               " inserts automatic 'end' keywords
+Plug 'tpope/vim-commentary'            " enables commenting areas of text
+Plug 'godlygeek/tabular'               " solves alignment by given characters
+Plug 'tpope/vim-surround'              " surrounds text with delimiters
+Plug 'bruno-/vim-vertical-move'        " very useful in visual-block mode
+Plug 'AndrewRadev/splitjoin.vim'       " code expressions: mutliline <=> single-line
+Plug 'tommcdo/vim-exchange'            " enables exchanging two parts of text
 
 " Snippets (first two are dependencies)
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
-Plug 'garbas/vim-snipmate'
+Plug 'garbas/vim-snipmate'             " TextMate-like snippets
 
 " Text objects
-Plug 'bruno-/vim-space'
-Plug 'kana/vim-textobj-user'
-Plug 'kana/vim-textobj-entire'
-Plug 'wellle/targets.vim'
+Plug 'bruno-/vim-space'                " text object for whitespace
+Plug 'kana/vim-textobj-user'           " helps plugins create text objects
+Plug 'kana/vim-textobj-entire'         " text object for the entire file
+Plug 'wellle/targets.vim'              " text objects on steroids
 
 " Git, GitHub
-Plug 'airblade/vim-gitgutter'
-Plug 'junegunn/vim-emoji'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rhubarb'
+Plug 'airblade/vim-gitgutter'          " displays Git diff in Vim's sign column
+Plug 'junegunn/vim-emoji'              " emoji completion, useful for pull requests
+Plug 'tpope/vim-fugitive'              " Git wrapper so awesome it should be illegal
+Plug 'tpope/vim-rhubarb'               " omni-completion of GitHub issues and collaborators
 
 " Misc
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-scriptease'
-Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-characterize'
-Plug 'bruno-/vim-husk'
-Plug 'justinmk/vim-gtfo'
+Plug 'tpope/vim-repeat'                " allows plugins to make their commands repeatable with '.'
+Plug 'tpope/vim-scriptease'            " helper commands for writing VimScript
+Plug 'tpope/vim-unimpaired'            " mappings for traversal through lists
+Plug 'tpope/vim-dispatch'              " async execution of commands (uses tmux if available)
+Plug 'tpope/vim-characterize'          " `ga` displays more information about a character
+Plug 'bruno-/vim-husk'                 " emacs mappings for Vim's command line
+Plug 'justinmk/vim-gtfo'               " opens Terminal/Finder in current file's working directory
 
 " Languages
-Plug 'othree/html5.vim'
-Plug 'AndrewRadev/vim-eco'
-Plug 'slim-template/vim-slim'
-Plug 'vim-ruby/vim-ruby'
-Plug 'chriseppstein/vim-haml'
-Plug 'pangloss/vim-javascript'
-Plug 'tpope/vim-markdown'
-Plug 'kchmck/vim-coffee-script'
-Plug 'elixir-lang/vim-elixir'
-Plug 'tmux-plugins/vim-tmux'
+Plug 'othree/html5.vim'                " adds HTML5 tags and attributes
+Plug 'AndrewRadev/vim-eco'             " https://github.com/sstephenson/eco
+Plug 'slim-template/vim-slim'          " https://github.com/slim-template/slim
+Plug 'vim-ruby/vim-ruby'               " Ruby syntax files and mappings
+Plug 'chriseppstein/vim-haml'          " https://github.com/haml/haml
+Plug 'pangloss/vim-javascript'         " JavaScript syntax files
+Plug 'tpope/vim-markdown'              " Markdown syntax files
+Plug 'kchmck/vim-coffee-script'        " CoffeeScript syntax files & compiling commands
+Plug 'elixir-lang/vim-elixir'          " Elixir syntax files
+Plug 'tmux-plugins/vim-tmux'           " Tmux syntax files & man shortcuts
 
 " HTML
-Plug 'tpope/vim-ragtag'
+Plug 'tpope/vim-ragtag'                " mappings for editing XML/HTML files
 
 " Ruby
-Plug 'tpope/vim-bundler'
-Plug 'tpope/vim-rake'
-Plug 't9md/vim-ruby-xmpfilter'
-Plug 'tpope/vim-rails'
-Plug '/Users/janko/Code/vim-test'
+Plug 'tpope/vim-bundler'               " Gemfile syntax & adds gems to tags/path
+Plug 'tpope/vim-rake'                  " :Rake command * adds stdlib to tags/path
+Plug 't9md/vim-ruby-xmpfilter'         " execute Ruby inside the buffer
+Plug 'tpope/vim-rails'                 " shitloads of useful things for Rails projects
+Plug '/Users/janko/Code/vim-test'      " run tests from Vim (RSpec, Cucumber, Minitest)
 
 " Vim testing frameworks
 Plug 'kana/vim-vspec'
