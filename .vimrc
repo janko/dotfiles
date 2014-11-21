@@ -1,3 +1,5 @@
+" vim: foldmethod=marker
+
 ""
 "" Thanks:
 ""   Gary Bernhardt  <destroyallsoftware.com>
@@ -10,9 +12,7 @@
 set nocompatible
 set exrc " load vimrc from current directory
 
-"""""""""""
-" PLUGINS "
-"""""""""""
+" PLUGINS {{{1
 
 source ~/.vim/bundle/vim-plug/plug.vim
 
@@ -95,9 +95,7 @@ Plug 'junegunn/vader.vim'
 
 call plug#end()
 
-"""""""""""""""""""""""""
-" GENERAL CONFIGURATION "
-"""""""""""""""""""""""""
+" GENERAL CONFIGURATION {{{1
 
 colorscheme vwilight
 
@@ -145,9 +143,7 @@ if has("statusline") && !&cp
   set statusline+=\ %v          " current column
 endif
 
-"""""""""""""""""""""
-" SPECIFIC SETTINGS "
-"""""""""""""""""""""
+" SPECIFIC SETTINGS {{{1
 
 " default shell syntax
 let g:is_bash=1
@@ -205,9 +201,7 @@ if has("autocmd")
 endif
 
 
-"""""""""""""""""""
-" LEADER MAPPINGS "
-"""""""""""""""""""
+" LEADER MAPPINGS {{{1
 
 let mapleader=","
 
@@ -242,9 +236,7 @@ nmap <leader>xc <Plug>(seeing_is_believing-clean)
 xmap <leader>xc <Plug>(seeing_is_believing-clean)
 
 
-"""""""""""""""""""""""""""""
-" OTHER MAPPINGS & COMMANDS "
-"""""""""""""""""""""""""""""
+" OTHER MAPPINGS & COMMANDS {{{1
 
 " easier access to clipboard register
 map + "+
@@ -269,9 +261,7 @@ nmap ]oa :set formatoptions-=a<CR>
 nmap <Space> za
 
 
-"""""""""""""""""""""""""""""
-" ABBREVIATIONS
-"""""""""""""""""""""""""""""
+" ABBREVIATIONS {{{1
 
 " :find
 cabbrev f find
