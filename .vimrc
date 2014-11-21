@@ -10,7 +10,6 @@
 ""
 
 set nocompatible
-set exrc " load vimrc from current directory
 
 " PLUGINS {{{1
 
@@ -20,82 +19,92 @@ call plug#begin("~/.vim/bundle")
 
 Plug 'tpope/vim-sensible'              " sensible defaults
 
-" File/buffer management
+" File/buffer management {{{2
 Plug 'tpope/vim-vinegar'               " nicely enhances Netrw
 Plug 'tpope/vim-eunuch'                " Unix-like commands (:Remove, :Rename, ...)
 Plug 'tpope/vim-projectionist'         " define connections between files
 Plug 'tpope/vim-obsession'             " saves Vim session to a file
+Plug 'tpope/vim-unimpaired'            " mappings for traversal through lists
 
-" Searching
+" Searching {{{2
 Plug 'mileszs/ack.vim'                 " vim wrapper around ack
 Plug 'nelstrom/vim-visual-star-search' " * and # in visual mode
 Plug 'tpope/vim-abolish'               " handles case styles (camelCase, MixedCase, ...)
 Plug 'nelstrom/vim-qargs'              " :Qargs - populates arglist with quickfix items
 
-" Editing
+Plug 'MarcWeber/vim-addon-mw-utils'    " (dependency #1)
+Plug 'tomtom/tlib_vim'                 " (dependency #2)
+Plug 'garbas/vim-snipmate'             " TextMate-like snippets
+
+" Editing {{{2
+Plug 'tpope/vim-repeat'                " allows plugins to make their commands repeatable with '.'
 Plug 'tpope/vim-endwise'               " inserts automatic 'end' keywords
 Plug 'tpope/vim-commentary'            " enables commenting areas of text
 Plug 'godlygeek/tabular'               " solves alignment by given characters
 Plug 'tpope/vim-surround'              " surrounds text with delimiters
-Plug 'bruno-/vim-vertical-move'        " very useful in visual-block mode
 Plug 'AndrewRadev/splitjoin.vim'       " code expressions: mutliline <=> single-line
 Plug 'tommcdo/vim-exchange'            " enables exchanging two parts of text
 
-" Snippets (first two are dependencies)
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
-Plug 'garbas/vim-snipmate'             " TextMate-like snippets
+" Movement {{{2
+Plug 'bruno-/vim-vertical-move'        " very useful in visual-block mode
 
-" Text objects
+" Text objects {{{2
 Plug 'bruno-/vim-space'                " text object for whitespace
 Plug 'kana/vim-textobj-user'           " helps plugins create text objects
 Plug 'kana/vim-textobj-entire'         " text object for the entire file
 Plug 'wellle/targets.vim'              " text objects on steroids
 
-" Git, GitHub
+" Git & GitHub {{{2
 Plug 'airblade/vim-gitgutter'          " displays Git diff in Vim's sign column
 Plug 'junegunn/vim-emoji'              " emoji completion, useful for pull requests
 Plug 'tpope/vim-fugitive'              " Git wrapper so awesome it should be illegal
 Plug 'tpope/vim-rhubarb'               " omni-completion of GitHub issues and collaborators
 
-" Misc
-Plug 'tpope/vim-repeat'                " allows plugins to make their commands repeatable with '.'
-Plug 'tpope/vim-scriptease'            " helper commands for writing VimScript
-Plug 'tpope/vim-unimpaired'            " mappings for traversal through lists
+" Terminal & Tmux & Vim {{{2
+Plug 'tmux-plugins/vim-tmux'           " Tmux syntax files & man shortcuts
+Plug 'justinmk/vim-gtfo'               " opens Terminal/Finder in current file's working directory
 Plug 'tpope/vim-dispatch'              " async execution of commands (uses tmux if available)
+Plug 'tpope/vim-scriptease'            " helper commands for writing VimScript
+Plug 'kana/vim-vspec'                  " testing framework
+Plug 'junegunn/vader.vim'              " testing framework
+
+" Misc {{{2
 Plug 'tpope/vim-characterize'          " `ga` displays more information about a character
 Plug 'bruno-/vim-husk'                 " emacs mappings for Vim's command line
-Plug 'justinmk/vim-gtfo'               " opens Terminal/Finder in current file's working directory
 
-" Languages
-Plug 'othree/html5.vim'                " adds HTML5 tags and attributes
-Plug 'AndrewRadev/vim-eco'             " https://github.com/sstephenson/eco
-Plug 'slim-template/vim-slim'          " https://github.com/slim-template/slim
+" Ruby {{{2
 Plug 'vim-ruby/vim-ruby'               " Ruby syntax files and mappings
-Plug 'chriseppstein/vim-haml'          " https://github.com/haml/haml
-Plug 'pangloss/vim-javascript'         " JavaScript syntax files
-Plug 'tpope/vim-markdown'              " Markdown syntax files
-Plug 'kchmck/vim-coffee-script'        " CoffeeScript syntax files & compiling commands
-Plug 'elixir-lang/vim-elixir'          " Elixir syntax files
-Plug 'tmux-plugins/vim-tmux'           " Tmux syntax files & man shortcuts
-
-" HTML
-Plug 'tpope/vim-ragtag'                " mappings for editing XML/HTML files
-
-" Ruby
 Plug 'tpope/vim-bundler'               " Gemfile syntax & adds gems to tags/path
 Plug 'tpope/vim-rake'                  " :Rake command * adds stdlib to tags/path
 Plug 't9md/vim-ruby-xmpfilter'         " execute Ruby inside the buffer
 Plug 'tpope/vim-rails'                 " shitloads of useful things for Rails projects
 Plug '/Users/janko/Code/vim-test'      " run tests from Vim (RSpec, Cucumber, Minitest)
 
-" Vim testing frameworks
-Plug 'kana/vim-vspec'
-Plug 'junegunn/vader.vim'
+" JavaScript {{{2
+Plug 'pangloss/vim-javascript'         " JavaScript syntax files
+Plug 'kchmck/vim-coffee-script'        " CoffeeScript syntax files & compiling commands
+
+" HTML {{{2
+Plug 'othree/html5.vim'                " adds HTML5 tags and attributes
+Plug 'tpope/vim-ragtag'                " mappings for editing XML/HTML files
+
+" Templating languages {{{2
+Plug 'AndrewRadev/vim-eco'             " https://github.com/sstephenson/eco
+Plug 'slim-template/vim-slim'          " https://github.com/slim-template/slim
+Plug 'chriseppstein/vim-haml'          " https://github.com/haml/haml
+
+" Markdown & LaTeX {{{2
+Plug 'tpope/vim-markdown'              " Markdown syntax files
+Plug 'Eckankar/vim-latex-folding'      " Folding for LaTeX documents
+
+" Other languages {{{2
+Plug 'elixir-lang/vim-elixir'          " Elixir syntax files
 
 call plug#end()
 
 " GENERAL CONFIGURATION {{{1
+
+set exrc " load vimrc from current directory
 
 colorscheme vwilight
 
