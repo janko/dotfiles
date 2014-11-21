@@ -155,10 +155,13 @@ endif
 " SPECIFIC SETTINGS {{{1
 
 " default shell syntax
-let g:is_bash=1
+let g:is_bash = 1
 
 " vim-gitgutter
 let g:gitgutter_sign_modified_removed = "~" " default is ~_, but it's cluttery
+
+" enable Markdown folding
+let g:markdown_folding = 1
 
 " vim-emoji
 set completefunc=emoji#complete
@@ -187,6 +190,9 @@ if has("autocmd")
   " https://github.com/sstephenson/bats
   au BufNewFile,BufRead *.bats setf sh
 
+  " Don't fold the whole document in Markdown files
+  au FileType markdown setl foldlevel=1
+
   " Remember last location in file, but not for commit messages.
   " see :help last-position-jump
   au BufReadPost * if &filetype !~ '^git\c' && line("'\"") > 0 && line("'\"") <= line("$")
@@ -212,7 +218,7 @@ endif
 
 " LEADER MAPPINGS {{{1
 
-let mapleader=","
+let mapleader = ","
 
 " toggle between last open buffers
 nmap <leader><leader> <c-^>
