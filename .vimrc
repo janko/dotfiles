@@ -253,12 +253,6 @@ map + "+
 cmap <C-p> <Up>
 cmap <C-n> <Down>
 
-" easier navigation between split windows
-nmap <c-j> <c-w>j
-nmap <c-k> <c-w>k
-nmap <c-h> <c-w>h
-nmap <c-l> <c-w>l
-
 " expand %% to current directory in command-line mode
 " http://vimcasts.org/e/14
 cmap %% <C-R>=expand('%:h').'/'<cr>
