@@ -14,6 +14,11 @@ done
 
 export EDITOR="vim"
 
+# http://bocoup.com/weblog/shell-hacking-cdpath/
+export CDPATH=".:~:~/Code"
+# `brew install bash-completion`
+source "/usr/local/etc/bash_completion"
+
 # Disable Ctrl-s, so I can use surround.vim
 stty -ixon
 
