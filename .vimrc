@@ -200,6 +200,8 @@ if has("autocmd")
 
   " Don't fold the whole document in Markdown files
   au FileType markdown setl foldlevel=1
+  " Don't automaticaly fold git commit diffs
+  au FileType git setl nofoldenable
 
   " Remember last location in file, but not for commit messages.
   " see :help last-position-jump
