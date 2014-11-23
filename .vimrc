@@ -161,6 +161,9 @@ let g:is_bash = 1
 let g:gitgutter_sign_modified_removed = "~" " default is ~_, but it's cluttery
 let g:gitgutter_sign_column_always = 1
 
+" disable \\ mapping in vim-commentary, to get used to `gc`
+let g:commentary_map_backslash = 0
+
 " enable Markdown folding
 let g:markdown_folding = 1
 
