@@ -147,6 +147,7 @@ set splitbelow
 
 if has("statusline") && !&cp
   set statusline=%f\ %m\ %r     " filename, modified, readonly
+  set statusline+=%y
   set statusline+=%{fugitive#statusline()}
   set statusline+=\ %l/%L[%p%%] " current line/total lines
   set statusline+=\ %v          " current column
