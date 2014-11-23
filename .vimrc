@@ -158,6 +158,9 @@ endif
 " default shell syntax
 let g:is_bash = 1
 
+" allow folding of single lines
+set foldminlines=0
+
 " vim-gitgutter
 let g:gitgutter_sign_modified_removed = "~" " default is ~_, but it's cluttery
 let g:gitgutter_sign_column_always = 1
