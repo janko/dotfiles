@@ -283,6 +283,9 @@ xmap & :&&<Enter>
 " set/unset automatic formatting (unimpaired-style)
 nmap [oa :set formatoptions+=a<CR>
 nmap ]oa :set formatoptions-=a<CR>
+" set/unset hard wrapping (unimpaired-style)
+nmap [oH :set textwidth=80<CR>
+nmap ]oH :set textwidth=0<CR>
 
 " toggle the current fold
 nmap <Space> za
