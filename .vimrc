@@ -121,25 +121,27 @@ set updatecount=0
 " incresase size of preview windows (e.g. fugitive's :Gstatus)
 set previewheight=25
 
+set nowrap             " don't wrap lines
+set linebreak          " soft wrap only on word boundaries
+
 " Whitespace
-set nowrap                        " don't wrap lines
-set tabstop=2                     " a tab is two spaces
-set shiftwidth=2                  " an autoindent (with <<) is two spaces
-set expandtab                     " use spaces, not tabs
+set tabstop=2          " a tab is two spaces
+set shiftwidth=2       " an autoindent (with <<) is two spaces
+set expandtab          " use spaces, not tabs
 " Joining lines
 if v:version > 703 || v:version == 703 && has("patch541")
-  set formatoptions+=j            " Delete comment char when joining commented lines
+  set formatoptions+=j " Delete comment char when joining commented lines
 endif
-set nojoinspaces                  " Use only 1 space after "." when joining lines, not 2
+set nojoinspaces       " Use only 1 space after "." when joining lines, not 2
 
 " Indicator chars
-set list                          " Show invisible characters
+set list               " Show invisible characters
 set showbreak=↪\ 
 set listchars=tab:▸\ ,trail:•,extends:❯,precedes:❮
 
 " Searching
-set hlsearch                      " highlight matches
-set gdefault                      " have :s///g flag by default on
+set hlsearch           " highlight matches
+set gdefault           " have :s///g flag by default on
 
 " More intuitive splitting
 set splitright
