@@ -28,7 +28,7 @@ class Dive
 
   def gems
     require "bundler"
-    Bundler.environment.specs | Gem::Specification.to_a
+    Bundler.environment.specs.to_a | Gem::Specification.to_a
   rescue Bundler::GemfileNotFound
     Gem::Specification.to_a
   end
