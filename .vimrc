@@ -1,5 +1,3 @@
-" vim: foldmethod=marker
-
 ""
 "" Thanks:
 ""   Gary Bernhardt  <destroyallsoftware.com>
@@ -190,6 +188,9 @@ set complete-=t
 set runtimepath+=$GOROOT/misc/vim
 
 if has("autocmd")
+  " Automatically recognize folding markers in Vim files
+  au FileType vim setl foldmethod=marker
+
   " Avoid showing trailing whitespace when in insert mode
   au InsertEnter * set listchars-=trail:•
   au InsertLeave * set listchars+=trail:•
