@@ -40,7 +40,7 @@ Plug 'garbas/vim-snipmate'             " TextMate-like snippets
 Plug 'tpope/vim-repeat'                " allows plugins to make their commands repeatable with '.'
 Plug 'tpope/vim-endwise'               " inserts automatic 'end' keywords
 Plug 'tpope/vim-commentary'            " enables commenting areas of text
-Plug 'godlygeek/tabular'               " solves alignment by given characters
+Plug 'junegunn/vim-easy-align'         " solves alignment by given characters
 Plug 'tpope/vim-surround'              " surrounds text with delimiters
 Plug 'AndrewRadev/splitjoin.vim'       " code expressions: mutliline <=> single-line
 Plug 'tommcdo/vim-exchange'            " enables exchanging two parts of text
@@ -238,18 +238,6 @@ nmap <leader><leader> <c-^>
 " open a file
 nmap <leader>o :call system("open " . expand("%"))<CR>
 
-" alignment mappings
-nmap <leader>a{  :Tabularize /{<CR>
-vmap <leader>a{  :Tabularize /{<CR>
-nmap <leader>a\| :Tabularize /\|<CR>
-vmap <leader>a\| :Tabularize /\|<CR>
-nmap <leader>a:  :Tabularize /:\zs/l0l1<CR>
-vmap <leader>a:  :Tabularize /:\zs/l0l1<CR>
-nmap <leader>a,  :Tabularize /,\zs/l0l1<CR>
-vmap <leader>a,  :Tabularize /,\zs/l0l1<CR>
-nmap <leader>a>  :Tabularize /=><CR>
-vmap <leader>a>  :Tabularize /=><CR>
-
 " Shortcut for running files
 nmap <leader>r :exec ":!~/bin/run " . expand("%")<cr>
 
@@ -290,6 +278,9 @@ nmap ]oH :set textwidth=0<CR>
 " toggle the current fold
 nmap <Space> za
 
+" map "|" to vim-easy-align
+xmap <Bar> <Plug>(EasyAlign)
+nmap <Bar> <Plug>(EasyAlign)ip
 
 " ABBREVIATIONS {{{1
 
