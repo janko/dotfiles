@@ -138,7 +138,6 @@ set showbreak=↪\
 set listchars=tab:▸\ ,trail:•,extends:❯,precedes:❮
 
 " Searching
-set hlsearch           " highlight matches
 set gdefault           " have :s///g flag by default on
 
 " More intuitive splitting
