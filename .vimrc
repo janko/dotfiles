@@ -291,6 +291,9 @@ nmap <Space> za
 xmap <Bar> <Plug>(EasyAlign)
 nmap <Bar> <Plug>(EasyAlign)ip
 
+" make "Y" behave like "D" and "C"
+nmap Y y$
+
 " ABBREVIATIONS {{{1
 
 " :find
