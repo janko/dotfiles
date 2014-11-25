@@ -6,7 +6,7 @@ fi
 
 # github.com/sstephenson/rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+eval "$(rbenv init - --no-rehash)"
 
 for file in ~/bin/*.sh; do
   source "$file"
