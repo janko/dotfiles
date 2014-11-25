@@ -189,6 +189,8 @@ set runtimepath+=$GOROOT/misc/vim
 if has("autocmd")
   " Automatically recognize folding markers in Vim files
   au FileType vim setl foldmethod=marker
+  " Disable folding for Ruby files (it can be slow, and I'm not using it)
+  au FileType ruby setl foldmethod=manual
 
   " Avoid showing trailing whitespace when in insert mode
   au InsertEnter * set listchars-=trail:•
