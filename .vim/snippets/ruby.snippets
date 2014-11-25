@@ -1,12 +1,16 @@
 extends rspec, cucumber
 
+snippet b
+	${1}
+		{VISUAL}
+	end
 snippet defi
 	def initialize${1}
 		${0:# code}
 	end
 snippet res
 	begin
-		${VISUAL:# code}
+		{VISUAL}
 	rescue ${2}
 		${0:# rescue}
 	end

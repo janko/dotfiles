@@ -203,6 +203,8 @@ if has("autocmd")
   au FileType markdown setl foldlevel=1
   " Don't automaticaly fold git commit diffs
   au FileType git setl nofoldenable
+  " Don't automaticaly fold snippets
+  au FileType snippets setl nofoldenable
 
   " Do automatic formatting on commit messages (but not pull requests)
   au VimEnter COMMIT_EDITMSG setl formatoptions+=a
