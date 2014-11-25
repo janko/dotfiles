@@ -242,9 +242,6 @@ noremap \ ,
 " toggle between last open buffers
 nmap <leader><leader> <c-^>
 
-" open a file
-nmap <leader>o :call system("open " . expand("%"))<CR>
-
 " Shortcut for running files
 nmap <leader>r :exec ":!~/bin/run " . expand("%")<cr>
 
