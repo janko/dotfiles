@@ -184,6 +184,9 @@ set complete-=t
 " Use vim files for the Go language
 set runtimepath+=$GOROOT/misc/vim
 
+
+" AUTOCOMMANDS {{{1
+
 if has("autocmd")
   " Automatically recognize folding markers in Vim files
   au FileType vim setl foldmethod=marker
