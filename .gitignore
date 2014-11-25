@@ -9,6 +9,7 @@ tmp/*
 .ackrc
 TODO.md
 .projections.json
+.vimrc
 
 # Vimfiles (only for this repo)
 .vim/bundle
