@@ -207,6 +207,9 @@ if has("autocmd")
   " Don't automaticaly fold git commit diffs
   au FileType git setl nofoldenable
 
+  " Do automatic formatting on commit messages (but not pull requests)
+  au VimEnter COMMIT_EDITMSG setl formatoptions+=a
+
   " Remember last location in file, but not for commit messages.
   " see :help last-position-jump
   au BufReadPost * if &filetype !~ '^git\c' && line("'\"") > 0 && line("'\"") <= line("$")
