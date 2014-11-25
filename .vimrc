@@ -106,33 +106,34 @@ set exrc " load vimrc from current directory
 
 colorscheme vwilight
 
-set number         " show line numbers
-set cursorline     " highlight the line of the cursor
-set colorcolumn=81 " highlight 81's column
+set number             " show line numbers
+set cursorline         " highlight the line of the cursor
+set colorcolumn=81     " highlight 81's column
 
-set lazyredraw     " don't redraw the screen between sequential macro executions
+set lazyredraw         " don't redraw the screen between sequential macro executions
+set virtualedit=block  " allow virtual editing in visual-block mode
 
 " Buffers
-set updatecount=0  " disable swap files; systems don't crash that often these days
-set autowrite      " autowrite unsaved buffers before making them hidden
+set updatecount=0      " disable swap files; systems don't crash that often these days
+set autowrite          " autowrite unsaved buffers before making them hidden
 
 " Wrapping
-set nowrap         " don't wrap lines
-set linebreak      " soft wrap only on word boundaries
+set nowrap             " don't wrap lines
+set linebreak          " soft wrap only on word boundaries
 
 " Whitespace
-set tabstop=2      " a tab is two spaces
-set shiftwidth=2   " an autoindent (with <<) is two spaces
-set expandtab      " use spaces, not tabs
-set nojoinspaces   " Use only 1 space after "." when joining lines, not 2
+set tabstop=2          " a tab is two spaces
+set shiftwidth=2       " an autoindent (with <<) is two spaces
+set expandtab          " use spaces, not tabs
+set nojoinspaces       " Use only 1 space after "." when joining lines, not 2
 
 " Indicator chars
-set list           " Show invisible characters
+set list               " Show invisible characters
 set showbreak=↪\ 
 set listchars=tab:▸\ ,trail:•,extends:❯,precedes:❮
 
 " Searching
-set gdefault       " have :s///g flag by default on
+set gdefault           " have :s///g flag by default on
 
 " More intuitive splitting
 set splitright
