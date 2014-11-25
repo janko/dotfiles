@@ -231,6 +231,8 @@ endif
 " LEADER MAPPINGS {{{1
 
 let mapleader = ","
+" map the reverse character search key to backslash
+noremap \ ,
 
 " toggle between last open buffers
 nmap <leader><leader> <c-^>
