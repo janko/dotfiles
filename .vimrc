@@ -212,6 +212,8 @@ if has("autocmd")
 
   " Do automatic formatting on commit messages (but not pull requests)
   au VimEnter COMMIT_EDITMSG setl formatoptions+=a
+  " Check spelling in commit messages
+  au FileType gitcommit setlocal spell
 
   " Remember last location in file, but not for commit messages.
   " see :help last-position-jump
