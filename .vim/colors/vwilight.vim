@@ -61,9 +61,17 @@ hi Tag                          ctermfg=95   ctermbg=NONE cterm=NONE         gui
 hi Todo                         ctermfg=59   ctermbg=NONE cterm=inverse,bold guifg=#5f5a60 guibg=NONE    gui=inverse,bold,italic
 hi Type                         ctermfg=95   ctermbg=NONE cterm=NONE         guifg=#9b703f guibg=NONE    gui=NONE
 
+" Spelling
+hi SpellBad                     ctermfg=NONE ctermbg=NONE cterm=underline    guifg=NONE    guibg=NONE    gui=undercurl
+hi SpellCap                     ctermfg=NONE ctermbg=NONE cterm=underline    guifg=NONE    guibg=NONE    gui=undercurl
+hi SpellLocal                   ctermfg=NONE ctermbg=NONE cterm=NONE         guifg=NONE    guibg=NONE    gui=NONE
+hi SpellRare                    ctermfg=NONE ctermbg=NONE cterm=NONE         guifg=NONE    guibg=NONE    gui=NONE
+
+" Vim
 hi vimVar                       ctermfg=228  ctermbg=NONE cterm=NONE         guifg=#f9ee98 guibg=NONE    gui=NONE
 hi vimSynCase                   ctermfg=228  ctermbg=NONE cterm=NONE         guifg=#f9ee98 guibg=NONE    gui=NONE
 
+" Ruby
 hi rubyConstant                 ctermfg=139  ctermbg=NONE cterm=NONE         guifg=#af87af guibg=NONE    gui=NONE
 hi rubySymbol                   ctermfg=167  ctermbg=NONE cterm=NONE         guifg=#cf6a4c guibg=NONE    gui=NONE
 hi rubyStringDelimiter          ctermfg=107  ctermbg=NONE cterm=NONE         guifg=#8f9d6a guibg=NONE    gui=NONE
@@ -75,19 +83,23 @@ hi rubyBlockParameter           ctermfg=103  ctermbg=NONE cterm=NONE         gui
 hi rubyRegexp                   ctermfg=179  ctermbg=NONE cterm=NONE         guifg=#e9c062 guibg=NONE    gui=NONE
 hi rubyRegexpDelimiter          ctermfg=179  ctermbg=NONE cterm=NONE         guifg=#e9c062 guibg=NONE    gui=NONE
 
+" Rails
 hi railsClass                   ctermfg=139  ctermbg=NONE cterm=NONE         guifg=#af87af guibg=NONE    gui=NONE
 hi railsMethod                  ctermfg=186  ctermbg=NONE cterm=NONE         guifg=#dad085 guibg=NONE    gui=NONE
 
+" HTML
 hi htmlTag                      ctermfg=137  ctermbg=NONE cterm=NONE         guifg=#ac885b guibg=NONE    gui=NONE
 hi htmlEndTag                   ctermfg=137  ctermbg=NONE cterm=NONE         guifg=#ac885b guibg=NONE    gui=NONE
 hi htmlTagName                  ctermfg=137  ctermbg=NONE cterm=NONE         guifg=#ac885b guibg=NONE    gui=NONE
 hi htmlArg                      ctermfg=137  ctermbg=NONE cterm=NONE         guifg=#ac885b guibg=NONE    gui=NONE
 hi htmlSpecialChar              ctermfg=167  ctermbg=NONE cterm=NONE         guifg=#cf6a4c guibg=NONE    gui=NONE
 
+" JavaScript
 hi javaScriptFunction           ctermfg=228  ctermbg=NONE cterm=NONE         guifg=#f9ee98 guibg=NONE    gui=NONE
 hi javaScriptRailsFunction      ctermfg=186  ctermbg=NONE cterm=NONE         guifg=#dad085 guibg=NONE    gui=NONE
 hi javaScriptBraces             ctermfg=NONE ctermbg=NONE cterm=NONE         guifg=NONE    guibg=NONE    gui=NONE
 
+" CoffeeScript
 hi coffeeObjAssign              ctermfg=167  ctermbg=NONE cterm=NONE         guifg=#cf6a4c guibg=NONE    gui=NONE
 hi coffeeObject                 ctermfg=139  ctermbg=NONE cterm=NONE         guifg=#af87af guibg=NONE    gui=NONE
 hi coffeeGlobal                 ctermfg=103  ctermbg=NONE cterm=NONE         guifg=#7587a6 guibg=NONE    gui=NONE
@@ -95,11 +107,13 @@ hi coffeeConstant               ctermfg=228  ctermbg=NONE cterm=NONE         gui
 hi coffeeRegex                  ctermfg=179  ctermbg=NONE cterm=NONE         guifg=#e9c062 guibg=NONE    gui=NONE
 hi coffeeSpecialIdent           ctermfg=103  ctermbg=NONE cterm=NONE         guifg=#7587a6 guibg=NONE    gui=NONE
 
+" YAML
 hi yamlKey                      ctermfg=95   ctermbg=NONE cterm=NONE         guifg=#9b703f guibg=NONE    gui=NONE
 hi yamlAnchor                   ctermfg=103  ctermbg=NONE cterm=NONE         guifg=#7587a6 guibg=NONE    gui=NONE
 hi yamlAlias                    ctermfg=103  ctermbg=NONE cterm=NONE         guifg=#7587a6 guibg=NONE    gui=NONE
 hi yamlDocumentHeader           ctermfg=107  ctermbg=NONE cterm=NONE         guifg=#8f9d6a guibg=NONE    gui=NONE
 
+" CSS
 hi cssURL                       ctermfg=103  ctermbg=NONE cterm=NONE         guifg=#7587a6 guibg=NONE    gui=NONE
 hi cssFunctionName              ctermfg=186  ctermbg=NONE cterm=NONE         guifg=#dad085 guibg=NONE    gui=NONE
 hi cssColor                     ctermfg=167  ctermbg=NONE cterm=NONE         guifg=#cf6a4c guibg=NONE    gui=NONE
@@ -119,6 +133,7 @@ hi diffDelete                   ctermfg=231  ctermbg=167  cterm=NONE         gui
 hi diffChange                   ctermfg=231  ctermbg=103  cterm=NONE         guifg=#f8f8f8 guibg=#7587a6 gui=NONE
 hi diffText                     ctermfg=231  ctermbg=139  cterm=NONE         guifg=#f8f8f8 guibg=#af87af gui=NONE
 
+" Git status window
 hi gitCommitUntrackedFile       ctermfg=103  ctermbg=NONE cterm=NONE         guifg=#7587a6 guibg=NONE    gui=NONE
 hi gitCommitDiscardedFile       ctermfg=167  ctermbg=NONE cterm=NONE         guifg=#cf6a4c guibg=NONE    gui=NONE
 hi gitCommitDiscardedArrow      ctermfg=167  ctermbg=NONE cterm=NONE         guifg=#cf6a4c guibg=NONE    gui=NONE
@@ -130,11 +145,14 @@ hi gitCommitSelectedFile        ctermfg=107  ctermbg=NONE cterm=NONE         gui
 hi gitCommitSelectedArrow       ctermfg=107  ctermbg=NONE cterm=NONE         guifg=#8f9d6a guibg=NONE    gui=NONE
 hi gitCommitSelectedType        ctermfg=107  ctermbg=NONE cterm=NONE         guifg=#8f9d6a guibg=NONE    gui=NONE
 
+" C/C++
 hi cType                        ctermfg=139  ctermbg=NONE cterm=NONE         guifg=#af87af guibg=NONE    gui=NONE
 hi cppType                      ctermfg=139  ctermbg=NONE cterm=NONE         guifg=#af87af guibg=NONE    gui=NONE
 
+" Java
 hi javaType                     ctermfg=139  ctermbg=NONE cterm=NONE         guifg=#af87af guibg=NONE    gui=NONE
 hi javaClassDecl                ctermfg=179  ctermbg=NONE cterm=NONE         guifg=#cda869 guibg=NONE    gui=NONE
 hi javaTypeDef                  ctermfg=103  ctermbg=NONE cterm=NONE         guifg=#7587a6 guibg=NONE    gui=NONE
 
+" Cucumber
 hi cucumberTags                 ctermfg=103  ctermbg=NONE cterm=NONE         guifg=#7587a6 guibg=NONE    gui=NONE
