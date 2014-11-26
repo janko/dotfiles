@@ -10,6 +10,7 @@ tmp/*
 TODO.md
 .projections.json
 .vimrc
+Session.vim
 
 # Vimfiles (only for this repo)
 .vim/bundle
