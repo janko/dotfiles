@@ -50,6 +50,10 @@ run_file() {
 
     open "${1%.tex}.pdf"
 
+  elif [[ $1 =~ .js$ ]]; then
+
+    node $1
+
   else
 
     ./$1
