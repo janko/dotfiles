@@ -168,6 +168,9 @@ let g:commentary_map_backslash = 0
 " enable Markdown folding
 let g:markdown_folding = 1
 
+" CTRL-^ should return to the last edited file
+let g:netrw_altfile = 1
+
 " vim-emoji
 set completefunc=emoji#complete
 
