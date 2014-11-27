@@ -297,6 +297,9 @@ nmap <Bar> <Plug>(EasyAlign)ip
 " make "Y" behave like "D" and "C"
 nmap Y y$
 
+" select pasted text
+nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
+
 " ABBREVIATIONS {{{1
 
 " :find
