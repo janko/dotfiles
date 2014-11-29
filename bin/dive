@@ -1,29 +1,38 @@
 #!/usr/bin/env ruby
-# USAGE: dive GEM_NAME
+# USAGE: dive GEM_NAME [options]
 #
-# Opens the lib/ directory of the specified gem in EDITOR. If you're in a Bundler
-# project, it will open the locked-down version of the gem.
+# Opens the specified gem in EDITOR. If you're in a Bundler project, it
+# will open the locked-down version of the gem. It also opens libraries from
+# the Ruby standard libary (`Timeout`, `Tempfile`, `URI`, ...).
 #
-# You can supply only the first few letters of the gem, and the first gem that
-# matches will be opened.
+# You can supply only the first few letters of the gem/stdlib, and the first
+# that matches will be opened.
+#
+# All additional options will be forwarded to your EDITOR.
 
+require "pathname"
 
 class Dive
-  def initialize(gem_name)
-    @gem_name = gem_name
+  def initialize(name)
+    @name = name
   end
 
   def call
-    gem = find_gem
-    gem_lib_path = File.join(gem.full_gem_path, "lib")
-    open(gem_lib_path)
+    pathname = find_gem || find_stdlib
+    fail if pathname.nil?
+    open(pathname)
   end
 
   private
 
   def find_gem
-    gem = gems.find { |gem| gem.name.start_with?(@gem_name) }
-    gem or fail
+    gem = gems.find { |gem| gem.name =~ /^#{@name}/i }
+    Pathname(gem.full_gem_path).join("lib", "#{gem.name}.rb") if gem
+  end
+
+  def find_stdlib
+    stdlib_dir = Pathname(Gem.dir).parent.parent.join(Gem.ruby_api_version)
+    Pathname.glob(stdlib_dir.join("*.rb")).find { |p| p.basename.to_s =~ /^#{@name}/i }
   end
 
   def gems
@@ -33,16 +42,16 @@ class Dive
     Gem::Specification.to_a
   end
 
-  def open(dir)
-    Dir.chdir(dir) do
-      system ENV["EDITOR"], dir
+  def open(pathname)
+    Dir.chdir(pathname.dirname) do
+      system ENV["EDITOR"], (pathname.exist? ? pathname.basename.to_s : "."), *ARGV
     end
   end
 
   def fail
-    warn "Gem not found: #{@gem_name}"
+    warn "Gem not found: #{@name}"
     exit
   end
 end
 
-Dive.new(ARGV.first).call
+Dive.new(ARGV.shift).call
