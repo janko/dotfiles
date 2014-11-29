@@ -116,7 +116,7 @@ set virtualedit=block  " allow virtual editing in visual-block mode
 
 " Buffers
 set updatecount=0      " disable swap files; systems don't crash that often these days
-set autowrite          " autowrite unsaved buffers before making them hidden
+set hidden             " allow hiding unsaved buffers
 
 " Wrapping
 set nowrap             " don't wrap lines
