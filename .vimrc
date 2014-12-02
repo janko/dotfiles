@@ -177,6 +177,7 @@ set completefunc=emoji#complete
 
 set wildignore+=.DS_Store,.git/**,tmp/**,*.log,.bundle/**
 set wildignore+=*.rbc,.rbx,*.scssc,*.sassc,.sass-cache,*.pyc,node_modules/**
+set fileignorecase " ignore file and directory name case
 
 " use :find for files inside a project
 set path+=**
