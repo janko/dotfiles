@@ -189,6 +189,8 @@ set complete-=t
 " Use vim files for the Go language
 set runtimepath+=$GOROOT/misc/vim
 
+" Read man pages from Vim (:Man)
+runtime! ftplugin/man.vim
 
 " AUTOCOMMANDS {{{1
 
