@@ -42,6 +42,7 @@ Plug 'junegunn/vim-easy-align'         " solves alignment by given characters
 Plug 'tpope/vim-surround'              " surrounds text with delimiters
 Plug 'AndrewRadev/splitjoin.vim'       " code expressions: mutliline <=> single-line
 Plug 'tommcdo/vim-exchange'            " enables exchanging two parts of text
+Plug 'PeterRincker/vim-argumentative'  " enables shifting items in comma-separated lists
 
 " Movement {{{2
 Plug 'bruno-/vim-vertical-move'        " very useful in visual-block mode
