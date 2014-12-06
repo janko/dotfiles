@@ -141,6 +141,10 @@ set gdefault           " have :s///g flag by default on
 set splitright
 set splitbelow
 
+" Casing
+set fileignorecase     " ignore file and directory name case
+
+
 if has("statusline") && !&cp
   set statusline=%f\ %m\ %r     " filename, modified, readonly
   set statusline+=%y
@@ -176,9 +180,12 @@ let g:netrw_altfile = 1
 " vim-emoji
 set completefunc=emoji#complete
 
-set wildignore+=.DS_Store,.git/**,tmp/**,*.log,.bundle/**
-set wildignore+=*.rbc,.rbx,*.scssc,*.sassc,.sass-cache,*.pyc,node_modules/**
-set fileignorecase " ignore file and directory name case
+" ignore general temp files
+set wildignore+=.DS_Store,.git/**,tmp/**,*.log,.bundle/**,node_modules/**
+" ignore compiled files
+set wildignore+=*.rbc,.rbx,*.scssc,*.sassc,.sass-cache,*.pyc
+" ignore images
+set wildignore+=*.jpg,*.jpeg,*.tiff,*.gif,*.png,*.svg,*.psd,*.pdf
 
 " use :find for files inside a project
 set path+=**
