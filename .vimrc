@@ -204,50 +204,50 @@ runtime! ftplugin/man.vim
 
 if has("autocmd")
   " Automatically recognize folding markers in Vim files
-  au FileType vim setl foldmethod=marker
+  autocmd FileType vim setl foldmethod=marker
 
   " Avoid showing trailing whitespace when in insert mode
-  au InsertEnter * set listchars-=trail:•
-  au InsertLeave * set listchars+=trail:•
+  autocmd InsertEnter * set listchars-=trail:•
+  autocmd InsertLeave * set listchars+=trail:•
 
   " Treat JSON files like JavaScript
-  au BufNewFile,BufRead *.json setf javascript
+  autocmd BufNewFile,BufRead *.json setf javascript
 
   " https://github.com/sstephenson/bats
-  au BufNewFile,BufRead *.bats setf sh
+  autocmd BufNewFile,BufRead *.bats setf sh
 
   " Don't fold the whole document in Markdown files
-  au FileType markdown setl foldlevel=1
+  autocmd FileType markdown setl foldlevel=1
   " Don't automaticaly fold git commit diffs
-  au FileType git setl nofoldenable
+  autocmd FileType git setl nofoldenable
   " Don't automaticaly fold snippets
-  au FileType snippets setl nofoldenable
+  autocmd FileType snippets setl nofoldenable
 
   " Do automatic formatting on commit messages (but not pull requests)
-  au VimEnter COMMIT_EDITMSG setl formatoptions+=a
+  autocmd VimEnter COMMIT_EDITMSG setl formatoptions+=a
   " Check spelling in commit messages
-  au FileType gitcommit setlocal spell
+  autocmd FileType gitcommit setlocal spell
 
   " Remember last location in file, but not for commit messages.
   " see :help last-position-jump
-  au BufReadPost * if &filetype !~ '^git\c' && line("'\"") > 0 && line("'\"") <= line("$")
+  autocmd BufReadPost * if &filetype !~ '^git\c' && line("'\"") > 0 && line("'\"") <= line("$")
     \| exe "normal! g`\"" | endif
 
   " mark Jekyll YAML frontmatter as comment
-  au BufNewFile,BufRead *.{md,markdown,html,xml} sy match Comment /\%^---\_.\{-}---$/
+  autocmd BufNewFile,BufRead *.{md,markdown,html,xml} sy match Comment /\%^---\_.\{-}---$/
 
   " magic markers: enable using 'H/S/J/C to jump back to
   " last HTML, stylesheet, JS or Ruby code buffer
-  au BufLeave *.{erb,html}      exe "normal! mH"
-  au BufLeave *.{css,scss,sass} exe "normal! mS"
-  au BufLeave *.{js,coffee}     exe "normal! mJ"
-  au BufLeave *.{rb}            exe "normal! mC"
+  autocmd BufLeave *.{erb,html}      exe "normal! mH"
+  autocmd BufLeave *.{css,scss,sass} exe "normal! mS"
+  autocmd BufLeave *.{js,coffee}     exe "normal! mJ"
+  autocmd BufLeave *.{rb}            exe "normal! mC"
 
   " make Python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
-  au FileType python setl softtabstop=4 tabstop=4 shiftwidth=4
+  autocmd FileType python setl softtabstop=4 tabstop=4 shiftwidth=4
 
   " enable .ejs files (Sprockets)
-  au BufNewFile,BufRead *.ejs setf html
+  autocmd BufNewFile,BufRead *.ejs setf html
 endif
 
 
