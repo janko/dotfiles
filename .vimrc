@@ -313,6 +313,10 @@ nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 " vim-livedown
 nmap <silent> gm :call LivedownPreview()<CR>
 
+nmap t<C-n> :TestNearest<CR>
+nmap t<C-f> :TestFile<CR>
+nmap t<C-s> :TestSuite<CR>
+
 " ABBREVIATIONS {{{1
 
 " :find
