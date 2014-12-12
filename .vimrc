@@ -71,6 +71,7 @@ Plug 'junegunn/vader.vim'              " testing framework
 " Misc {{{2
 Plug 'tpope/vim-characterize'          " `ga` displays more information about a character
 Plug 'bruno-/vim-husk'                 " emacs mappings for Vim's command line
+Plug 'gcavallanti/vim-noscrollbar'     " see which part of the buffer is shown on the screen
 
 " Ruby {{{2
 Plug 'vim-ruby/vim-ruby'               " Ruby syntax files and mappings
@@ -145,13 +146,13 @@ set splitbelow
 " Casing
 set fileignorecase     " ignore file and directory name case
 
-
 if has("statusline") && !&cp
-  set statusline=%f\ %m\ %r     " filename, modified, readonly
-  set statusline+=%y
-  set statusline+=%{fugitive#statusline()}
-  set statusline+=\ %l/%L[%p%%] " current line/total lines
-  set statusline+=\ %v          " current column
+  set statusline=%f\ %m\ %r                " filename, modified, readonly
+  set statusline+=%y                       " filetype
+  set statusline+=%{fugitive#statusline()} " current git branch
+  set statusline+=\ %l/%L[%p%%]            " current line/total lines
+  set statusline+=\ %v                     " current column
+  set statusline+=\ %=%{noscrollbar#statusline(20,'■','◫',['◧'],['◨'])}
 endif
 
 " SPECIFIC SETTINGS {{{1
