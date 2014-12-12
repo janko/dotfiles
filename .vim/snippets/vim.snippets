@@ -1,0 +1,16 @@
+snippet f
+	function! ${1}(${2}) abort
+		${0:" body}
+	endfunction
+snippet it
+	it "${1}"
+		${0:" assertions}
+	end
+snippet des
+	describe "${1}"
+		${0:" describe}
+	end
+snippet con
+	context "${1}"
+		${0:" context}
+	end

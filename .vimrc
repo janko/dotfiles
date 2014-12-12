@@ -30,6 +30,7 @@ Plug 'nelstrom/vim-visual-star-search' " * and # in visual mode
 Plug 'tpope/vim-abolish'               " handles case styles (camelCase, MixedCase, ...)
 Plug 'nelstrom/vim-qargs'              " :Qargs - populates arglist with quickfix items
 
+" Snippets {{{2
 Plug 'MarcWeber/vim-addon-mw-utils'    " (dependency #1)
 Plug 'tomtom/tlib_vim'                 " (dependency #2)
 Plug 'garbas/vim-snipmate'             " TextMate-like snippets

@@ -15,3 +15,4 @@ Session.vim
 # Vimfiles (only for this repo)
 .vim/bundle
 .vim/.netrwhist
+.vim/flavors
