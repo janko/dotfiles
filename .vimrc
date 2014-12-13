@@ -97,7 +97,6 @@ Plug 'chriseppstein/vim-haml'          " https://github.com/haml/haml
 " Markdown & LaTeX {{{2
 Plug 'tpope/vim-markdown'              " Markdown syntax files
 Plug 'Eckankar/vim-latex-folding'      " Folding for LaTeX documents
-Plug 'shime/vim-livedown'              " Live Markdown rendering
 
 " Other languages {{{2
 Plug 'elixir-lang/vim-elixir'          " Elixir syntax files
@@ -311,9 +310,6 @@ nmap Y y$
 
 " select pasted text
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
-
-" vim-livedown
-nmap <silent> gm :call LivedownPreview()<CR>
 
 nmap t<C-n> :TestNearest<CR>
 nmap t<C-f> :TestFile<CR>
