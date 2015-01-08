@@ -190,7 +190,7 @@ let g:netrw_altfile = 1
 set completefunc=emoji#complete
 
 " ignore general temp files
-set wildignore+=.DS_Store,.git/**,tmp/**,*.log,.bundle/**,node_modules/**
+set wildignore+=.DS_Store,.git/**,tmp/**,*.log,.bundle/**,node_modules/**,tags
 " ignore compiled files
 set wildignore+=*.rbc,.rbx,*.scssc,*.sassc,.sass-cache,*.pyc
 " ignore images
