@@ -257,6 +257,9 @@ if has("autocmd")
 
   " enable .ejs files (Sprockets)
   autocmd BufNewFile,BufRead *.ejs setf html
+
+  " set wrapping in LaTeX files
+  autocmd FileType tex setl wrap
 endif
 
 
@@ -306,9 +309,6 @@ nmap ]oa :set formatoptions-=a<CR>
 nmap [oH :set textwidth=80<CR>
 nmap ]oH :set textwidth=0<CR>
 
-" toggle the current fold
-nmap <Space> za
-
 " map "|" to vim-easy-align
 xmap <Bar> <Plug>(EasyAlign)
 nmap <Bar> <Plug>(EasyAlign)ip
@@ -324,6 +324,13 @@ nmap <silent> t<C-n> :TestNearest<CR>
 nmap <silent> t<C-f> :TestFile<CR>
 nmap <silent> t<C-s> :TestSuite<CR>
 nmap <silent> t<C-l> :TestLast<CR>
+
+" Insert markdown "=====" title underline
+nmap ]= yypVr=
+nmap [= yyPVr=
+" Insert markdown "-----" title underline
+nmap ]- yypVr-
+nmap [- yyPVr-
 
 " ABBREVIATIONS {{{1
 
