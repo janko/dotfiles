@@ -66,12 +66,12 @@ Plug 'justinmk/vim-gtfo'               " opens Terminal/Finder in current file's
 Plug 'tpope/vim-dispatch'              " async execution of commands (uses tmux if available)
 Plug 'tpope/vim-scriptease'            " helper commands for writing VimScript
 Plug 'kana/vim-vspec'                  " testing framework
-Plug 'junegunn/vader.vim'              " testing framework
 
 " Misc {{{2
 Plug 'tpope/vim-characterize'          " `ga` displays more information about a character
 Plug 'bruno-/vim-husk'                 " emacs mappings for Vim's command line
 Plug 'gcavallanti/vim-noscrollbar'     " see which part of the buffer is shown on the screen
+Plug '/Users/janko/Code/vim-test'      " run tests from Vim (RSpec, Cucumber, Minitest)
 
 " Ruby {{{2
 Plug 'vim-ruby/vim-ruby'               " Ruby syntax files and mappings
@@ -79,7 +79,6 @@ Plug 'tpope/vim-bundler'               " Gemfile syntax & adds gems to tags/path
 Plug 'tpope/vim-rake'                  " :Rake command * adds stdlib to tags/path
 Plug 't9md/vim-ruby-xmpfilter'         " execute Ruby inside the buffer
 Plug 'tpope/vim-rails'                 " shitloads of useful things for Rails projects
-Plug '/Users/janko/Code/vim-test'      " run tests from Vim (RSpec, Cucumber, Minitest)
 
 " JavaScript {{{2
 Plug 'pangloss/vim-javascript'         " JavaScript syntax files
@@ -101,7 +100,13 @@ Plug 'Eckankar/vim-latex-folding'      " Folding for LaTeX documents
 " Other languages {{{2
 Plug 'elixir-lang/vim-elixir'          " Elixir syntax files
 
+" Temporary {{{2
+Plug 'benmills/vimux'                  " send commands to an anonymous tmux pane
+Plug 'kikijump/tslime.vim'             " send commands to a specified tmux pane
+
 call plug#end()
+
+runtime tslime.vim
 
 " GENERAL CONFIGURATION {{{1
 
@@ -311,9 +316,11 @@ nmap Y y$
 " select pasted text
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
-nmap t<C-n> :TestNearest<CR>
-nmap t<C-f> :TestFile<CR>
-nmap t<C-s> :TestSuite<CR>
+" vim-test mappings
+nmap <silent> t<C-n> :TestNearest<CR>
+nmap <silent> t<C-f> :TestFile<CR>
+nmap <silent> t<C-s> :TestSuite<CR>
+nmap <silent> t<C-l> :TestLast<CR>
 
 " ABBREVIATIONS {{{1
 
