@@ -161,6 +161,9 @@ endif
 
 " SPECIFIC SETTINGS {{{1
 
+" make grep recursive
+set grepprg=grep\ -n\ -r\ $*\ /dev/null
+
 " default shell syntax
 let g:is_bash = 1
 
