@@ -72,6 +72,7 @@ Plug 'tpope/vim-characterize'          " `ga` displays more information about a 
 Plug 'bruno-/vim-husk'                 " emacs mappings for Vim's command line
 Plug 'gcavallanti/vim-noscrollbar'     " see which part of the buffer is shown on the screen
 Plug '/Users/janko/Code/vim-test'      " run tests from Vim (RSpec, Cucumber, Minitest)
+Plug 'bruno-/vim-man'                  " improved Man pages in Vim
 
 " Ruby {{{2
 Plug 'vim-ruby/vim-ruby'               " Ruby syntax files and mappings
@@ -205,9 +206,6 @@ set complete-=t
 
 " Use vim files for the Go language
 set runtimepath+=$GOROOT/misc/vim
-
-" Read man pages from Vim (:Man)
-runtime! ftplugin/man.vim
 
 " AUTOCOMMANDS {{{1
 
