@@ -85,6 +85,10 @@ Plug 'tpope/vim-rails'                 " shitloads of useful things for Rails pr
 Plug 'pangloss/vim-javascript'         " JavaScript syntax files
 Plug 'kchmck/vim-coffee-script'        " CoffeeScript syntax files & compiling commands
 
+" Clojure {{{2
+Plug 'tpope/vim-classpath'             " Dependency of vim-fireplace
+Plug 'tpope/vim-fireplace'             " Ultimate Clojure plugin
+
 " HTML {{{2
 Plug 'othree/html5.vim'                " adds HTML5 tags and attributes
 Plug 'tpope/vim-ragtag'                " mappings for editing XML/HTML files
