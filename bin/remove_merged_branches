@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-for branch in `git branch`; do
+for branch in `git branch --merged`; do
   if [ $branch != master ]; then
     git branch --delete --remotes $branch 2>/dev/null
   fi
