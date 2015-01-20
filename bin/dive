@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-# USAGE: dive GEM_NAME [options]
+# USAGE: dive GEM_NAME [version] [options]
 #
 # Opens the specified gem in EDITOR. If you're in a Bundler project, it
 # will open the locked-down version of the gem. It also opens libraries from
@@ -17,16 +17,18 @@ class Dive
     @name = name
   end
 
-  def call
-    pathname = find_gem || find_stdlib
+  def call(version)
+    pathname = find_gem(version) || find_stdlib
     fail if pathname.nil?
     open(pathname)
   end
 
   private
 
-  def find_gem
-    gem = gems.find { |gem| gem.name =~ /^#{@name}/i }
+  def find_gem(version)
+    gem = gems
+      .select { |gem| gem.name =~ /^#{@name}/i }
+      .find   { |gem| gem.version.to_s.start_with?(version.to_s) }
     Pathname(gem.full_gem_path).join("lib", "#{gem.name}.rb") if gem
   end
 
@@ -54,4 +56,7 @@ class Dive
   end
 end
 
-Dive.new(ARGV.shift).call
+name    = ARGV.shift
+version = ARGV.shift if ARGV.first =~ /^\d/
+
+Dive.new(name).call(version)
