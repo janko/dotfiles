@@ -239,11 +239,6 @@ if has("autocmd")
   " Check spelling in commit messages
   autocmd FileType gitcommit setlocal spell
 
-  " Remember last location in file, but not for commit messages.
-  " see :help last-position-jump
-  autocmd BufReadPost * if &filetype !~ '^git\c' && line("'\"") > 0 && line("'\"") <= line("$")
-    \| exe "normal! g`\"" | endif
-
   " mark Jekyll YAML frontmatter as comment
   autocmd BufNewFile,BufRead *.{md,markdown,html,xml} sy match Comment /\%^---\_.\{-}---$/
 
