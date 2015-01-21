@@ -48,3 +48,7 @@ export PATH="./bin:$PATH"
 # Prettier `ls` colors
 export CLICOLOR=1
 export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
+
+# UTF-8
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
