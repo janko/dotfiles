@@ -15,82 +15,85 @@ source ~/.vim/bundle/vim-plug/plug.vim
 
 call plug#begin("~/.vim/bundle")
 
-Plug 'tpope/vim-sensible'                " sensible defaults
+Plug 'tpope/vim-sensible'                 " sensible defaults
 
 " File/buffer management {{{2
-Plug 'tpope/vim-vinegar'                 " nicely enhances Netrw
-Plug 'tpope/vim-eunuch'                  " Unix-like commands (:Remove, :Rename, ...)
-Plug 'tpope/vim-projectionist'           " define connections between files
-Plug 'tpope/vim-obsession'               " saves Vim session to a file
-Plug 'tpope/vim-unimpaired'              " mappings for traversal through lists
+Plug 'tpope/vim-vinegar'                  " nicely enhances Netrw
+Plug 'tpope/vim-eunuch'                   " Unix-like commands (:Remove, :Rename, ...)
+Plug 'tpope/vim-projectionist'            " define connections between files
+Plug 'tpope/vim-obsession'                " saves Vim session to a file
+Plug 'tpope/vim-unimpaired'               " mappings for traversal through lists
 
 " Searching {{{2
-Plug 'nelstrom/vim-visual-star-search'   " * and # in visual mode
-Plug 'tpope/vim-abolish'                 " handles case styles (camelCase, MixedCase, ...)
-Plug 'nelstrom/vim-qargs'                " :Qargs - populates arglist with quickfix items
+Plug 'nelstrom/vim-visual-star-search'    " * and # in visual mode
+Plug 'tpope/vim-abolish'                  " handles case styles (camelCase, MixedCase, ...)
+Plug 'nelstrom/vim-qargs'                 " :Qargs - populates arglist with quickfix items
 
 " Snippets {{{2
-Plug 'MarcWeber/vim-addon-mw-utils'      " (dependency #1)
-Plug 'tomtom/tlib_vim'                   " (dependency #2)
-Plug 'garbas/vim-snipmate'               " TextMate-like snippets
+Plug 'MarcWeber/vim-addon-mw-utils'       " (dependency #1)
+Plug 'tomtom/tlib_vim'                    " (dependency #2)
+Plug 'garbas/vim-snipmate'                " TextMate-like snippets
 
 " Editing {{{2
-Plug 'tpope/vim-repeat'                  " allows plugins to make their commands repeatable with '.'
-Plug 'tpope/vim-endwise'                 " inserts automatic 'end' keywords
-Plug 'tpope/vim-commentary'              " enables commenting areas of text
-Plug 'junegunn/vim-easy-align'           " solves alignment by given characters
-Plug 'tpope/vim-surround'                " surrounds text with delimiters
-Plug 'AndrewRadev/splitjoin.vim'         " code expressions: mutliline <=> single-line
-Plug 'PeterRincker/vim-argumentative'    " enables shifting items in comma-separated lists
+Plug 'tpope/vim-repeat'                   " allows plugins to make their commands repeatable with '.'
+Plug 'tpope/vim-endwise'                  " inserts automatic 'end' keywords
+Plug 'tpope/vim-commentary'               " enables commenting areas of text
+Plug 'junegunn/vim-easy-align'            " solves alignment by given characters
+Plug 'tpope/vim-surround'                 " surrounds text with delimiters
+Plug 'AndrewRadev/splitjoin.vim'          " code expressions: mutliline <=> single-line
+Plug 'PeterRincker/vim-argumentative'     " enables shifting items in comma-separated lists
+Plug 'michaeljsmith/vim-indent-object'    " text object for lines of same indentation
 
 " Movement {{{2
-Plug 'bruno-/vim-vertical-move'          " move vertically to the end of the column
-Plug 'jeetsukumaran/vim-indentwise'      " move between indentation levels
+Plug 'bruno-/vim-vertical-move'           " move vertically to the end of the column
+Plug 'jeetsukumaran/vim-indentwise'       " move between indentation levels
 
 " Text objects {{{2
-Plug 'bruno-/vim-space'                  " text object for whitespace
-Plug 'kana/vim-textobj-user'             " helps plugins create text objects
-Plug 'kana/vim-textobj-entire'           " text object for the entire file
-Plug 'wellle/targets.vim'                " text objects on steroids
+Plug 'bruno-/vim-space'                   " text object for whitespace
+Plug 'kana/vim-textobj-user'              " helps plugins create text objects
+Plug 'kana/vim-textobj-entire'            " text object for the entire file
+Plug 'wellle/targets.vim'                 " text objects on steroids
 
 " Git & GitHub {{{2
-Plug 'airblade/vim-gitgutter'            " displays Git diff in Vim's sign column
-Plug 'junegunn/vim-emoji'                " emoji completion, useful for pull requests
-Plug 'tpope/vim-fugitive'                " Git wrapper so awesome it should be illegal
-Plug 'tpope/vim-rhubarb'                 " omni-completion of GitHub issues and collaborators
+Plug 'airblade/vim-gitgutter'             " displays Git diff in Vim's sign column
+Plug 'junegunn/vim-emoji'                 " emoji completion, useful for pull requests
+Plug 'tpope/vim-fugitive'                 " Git wrapper so awesome it should be illegal
+Plug 'tpope/vim-rhubarb'                  " omni-completion of GitHub issues and collaborators
 
 " Terminal & Tmux & Vim {{{2
-Plug 'tmux-plugins/vim-tmux'             " Tmux syntax files & man shortcuts
-Plug 'justinmk/vim-gtfo'                 " opens Terminal/Finder in current file's working directory
-Plug 'tpope/vim-dispatch'                " async execution of commands (uses tmux if available)
-Plug 'tpope/vim-scriptease'              " helper commands for writing VimScript
+Plug 'tmux-plugins/vim-tmux'              " Tmux syntax files & man shortcuts
+Plug 'justinmk/vim-gtfo'                  " opens Terminal/Finder in current file's working directory
+Plug 'tpope/vim-dispatch'                 " async execution of commands (uses tmux if available)
+Plug 'tpope/vim-scriptease'               " helper commands for writing VimScript
+Plug 'tmux-plugins/vim-tmux-focus-events' " improved autoread
 
 " Testing
-Plug 'kana/vim-vspec'                    " RSpec-like testing framework for VimScript
-Plug 'junegunn/vader.vim'                " Cucumber-like testing framework for VimScript
-Plug '/Users/janko/Code/vim-test'        " run any kind of tests from Vim (RSpec, Cucumber, Minitest)
+Plug 'kana/vim-vspec'                     " RSpec-like testing framework for VimScript
+Plug 'junegunn/vader.vim'                 " Cucumber-like testing framework for VimScript
+Plug '/Users/janko/Code/vim-test'         " run any kind of tests from Vim (RSpec, Cucumber, Minitest)
 
 " Misc {{{2
-Plug 'tpope/vim-characterize'            " `ga` displays more information about a character
-Plug 'bruno-/vim-husk'                   " emacs mappings for Vim's command line
-Plug 'gcavallanti/vim-noscrollbar'       " see which part of the buffer is shown on the screen
-Plug 'bruno-/vim-man'                    " improved Man pages in Vim
+Plug 'tpope/vim-characterize'             " `ga` displays more information about a character
+Plug 'bruno-/vim-husk'                    " emacs mappings for Vim's command line
+Plug 'gcavallanti/vim-noscrollbar'        " see which part of the buffer is shown on the screen
+Plug 'bruno-/vim-man'                     " improved Man pages in Vim
 
 " Ruby {{{2
-Plug 'vim-ruby/vim-ruby'                 " Ruby syntax files and mappings
-Plug 'tpope/vim-bundler'                 " Gemfile syntax & adds gems to tags/path
-Plug 'tpope/vim-rake'                    " :Rake command * adds stdlib to tags/path
-Plug 't9md/vim-ruby-xmpfilter'           " execute Ruby inside the buffer
-Plug 'tpope/vim-rails'                   " shitloads of useful things for Rails projects
+Plug 'vim-ruby/vim-ruby'                  " Ruby syntax files and mappings
+Plug 'tpope/vim-bundler'                  " Gemfile syntax & adds gems to tags/path
+Plug 'tpope/vim-rake'                     " :Rake command * adds stdlib to tags/path
+Plug 't9md/vim-ruby-xmpfilter'            " execute Ruby inside the buffer
+Plug 'tpope/vim-rails'                    " shitloads of useful things for Rails projects
 
 " Other languages {{{2
-Plug 'pangloss/vim-javascript'           " JavaScript syntax files
-Plug 'othree/html5.vim'                  " adds HTML5 tags and attributes
-Plug 'tpope/vim-ragtag'                  " mappings for editing XML/HTML files
-Plug 'tpope/vim-markdown'                " Markdown syntax files
-Plug '/Users/janko/Code/vim-tex-folding' " Folding for LaTeX documents
-Plug 'elixir-lang/vim-elixir'            " Elixir syntax files
-Plug 'fatih/vim-go'                      " Go syntax files and commands
+Plug 'pangloss/vim-javascript'            " JavaScript syntax files
+Plug 'othree/html5.vim'                   " adds HTML5 tags and attributes
+Plug 'tpope/vim-ragtag'                   " mappings for editing XML/HTML files
+Plug 'tpope/vim-markdown'                 " Markdown syntax files
+Plug '/Users/janko/Code/vim-tex-folding'  " Folding for LaTeX documents
+Plug 'elixir-lang/vim-elixir'             " Elixir syntax files
+Plug 'fatih/vim-go'                       " Go syntax files and commands
+Plug 'kchmck/vim-coffee-script'           " CoffeeScript goodies
 
 call plug#end()
 
