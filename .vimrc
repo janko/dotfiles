@@ -318,6 +318,14 @@ nmap [= yyPVr=
 nmap ]- yypVr-
 nmap [- yyPVr-
 
+" shortcut for ruby execution
+command! -bar -nargs=* P execute 'ruby p('.<q-args>.')'
+
+" MACROS {{{1
+
+let @p = 'orequire "pry"; binding.pry'
+let @b = 'Irequire "benchmark"; puts Benchmark.realtime { A }'
+
 " ABBREVIATIONS {{{1
 
 " :find
