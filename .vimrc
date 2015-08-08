@@ -77,6 +77,7 @@ Plug 'tpope/vim-characterize'             " `ga` displays more information about
 Plug 'bruno-/vim-husk'                    " emacs mappings for Vim's command line
 Plug 'gcavallanti/vim-noscrollbar'        " see which part of the buffer is shown on the screen
 Plug 'bruno-/vim-man'                     " improved Man pages in Vim
+Plug 'ekalinin/Dockerfile.vim'            " Dockerfile syntax
 
 " Ruby {{{2
 Plug 'vim-ruby/vim-ruby'                  " Ruby syntax files and mappings
