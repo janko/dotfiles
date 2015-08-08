@@ -241,8 +241,8 @@ if has("autocmd")
   " enable .ejs files (Sprockets)
   autocmd BufNewFile,BufRead *.ejs setf html
 
-  " set wrapping in LaTeX files
-  autocmd FileType tex setl wrap
+  " set wrapping in LaTeX files and quickfix list
+  autocmd FileType tex,qf setl wrap
 endif
 
 
