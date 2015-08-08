@@ -330,6 +330,7 @@ let @b = 'Irequire "benchmark"; puts Benchmark.realtime { A }'
 
 " :find
 cabbrev f find
+cabbrev F find
 cabbrev sf sfind
 cabbrev vf vert sfind
 
