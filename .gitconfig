@@ -8,9 +8,9 @@
   st = status -sb
   aa = add --all
   co = checkout
-  lg = "!. ~/bin/git_helpers.sh && pretty_git_log"
-  r = "!git lg -30"
-  last = "!git lg -1"
+  lg = "!. ~/bin/git_helpers.sh && pretty_git_log | less -FXRS"
+  r = "!. ~/bin/git_helpers.sh && pretty_git_log -30"
+  last = "!. ~/bin/git_helpers.sh && pretty_git_log -1"
   ci = commit
   rbc = rebase --continue
   rb = rebase
