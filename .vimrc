@@ -296,7 +296,7 @@ nmap ]oH :set textwidth=0<CR>
 
 " map "|" to vim-easy-align
 xmap <Bar> <Plug>(EasyAlign)
-nmap <Bar> <Plug>(EasyAlign)ip
+nmap <Bar> <Plug>(EasyAlign)ii
 
 " make "Y" behave like "D" and "C"
 nmap Y y$
