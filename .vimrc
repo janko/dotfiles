@@ -177,6 +177,9 @@ let g:markdown_folding = 1
 " CTRL-^ should return to the last edited file
 let g:netrw_altfile = 1
 
+" make easy-align work with comments and strings as well
+let g:easy_align_ignore_groups = [] " default is ['String', 'Comment']
+
 " vim-emoji
 set completefunc=emoji#complete
 
