@@ -67,6 +67,7 @@ Plug 'justinmk/vim-gtfo'                  " opens Terminal/Finder in current fil
 Plug 'tpope/vim-dispatch'                 " async execution of commands (uses tmux if available)
 Plug 'tpope/vim-scriptease'               " helper commands for writing VimScript
 Plug 'tmux-plugins/vim-tmux-focus-events' " improved autoread
+Plug 'roxma/vim-tmux-clipboard'           " seamless integration for vim and tmux's clipboard
 
 " Testing
 Plug 'kana/vim-vspec'                     " RSpec-like testing framework for VimScript

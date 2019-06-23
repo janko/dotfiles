@@ -22,6 +22,8 @@ if [ -f /usr/local/share/bash-completion/bash_completion ]; then
   source "/usr/local/share/bash-completion/bash_completion"
 fi
 
+source ~/bin/bash_completion_tmux.sh
+
 # Disable Ctrl-s, so I can use surround.vim
 stty -ixon
 
