@@ -23,11 +23,13 @@ Plug 'tpope/vim-eunuch'                   " Unix-like commands (:Remove, :Rename
 Plug 'tpope/vim-projectionist'            " define connections between files
 Plug 'tpope/vim-obsession'                " saves Vim session to a file
 Plug 'tpope/vim-unimpaired'               " mappings for traversal through lists
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 " Searching {{{2
 Plug 'nelstrom/vim-visual-star-search'    " * and # in visual mode
 Plug 'tpope/vim-abolish'                  " handles case styles (camelCase, MixedCase, ...)
 Plug 'nelstrom/vim-qargs'                 " :Qargs - populates arglist with quickfix items
+Plug 'mileszs/ack.vim'                    " Vim wrapper for ack/The Silver Searcher/ripgrep
 
 " Snippets {{{2
 Plug 'MarcWeber/vim-addon-mw-utils'       " (dependency #1)
@@ -51,7 +53,6 @@ Plug 'jeetsukumaran/vim-indentwise'       " move between indentation levels
 " Text objects {{{2
 Plug 'bruno-/vim-space'                   " text object for whitespace
 Plug 'kana/vim-textobj-user'              " helps plugins create text objects
-Plug 'kana/vim-textobj-entire'            " text object for the entire file
 Plug 'wellle/targets.vim'                 " text objects on steroids
 
 " Git & GitHub {{{2
@@ -75,7 +76,6 @@ Plug '/Users/janko/Code/vim-test'         " run any kind of tests from Vim (RSpe
 " Misc {{{2
 Plug 'tpope/vim-characterize'             " `ga` displays more information about a character
 Plug 'bruno-/vim-husk'                    " emacs mappings for Vim's command line
-Plug 'gcavallanti/vim-noscrollbar'        " see which part of the buffer is shown on the screen
 Plug 'bruno-/vim-man'                     " improved Man pages in Vim
 Plug 'ekalinin/Dockerfile.vim'            " Dockerfile syntax
 
@@ -88,6 +88,7 @@ Plug 'tpope/vim-rails'                    " shitloads of useful things for Rails
 
 " Other languages {{{2
 Plug 'pangloss/vim-javascript'            " JavaScript syntax files
+Plug 'mxw/vim-jsx'                        " JSX support
 Plug 'othree/html5.vim'                   " adds HTML5 tags and attributes
 Plug 'tpope/vim-ragtag'                   " mappings for editing XML/HTML files
 Plug 'tpope/vim-markdown'                 " Markdown syntax files
@@ -95,6 +96,21 @@ Plug '/Users/janko/Code/vim-tex-folding'  " Folding for LaTeX documents
 Plug 'elixir-lang/vim-elixir'             " Elixir syntax files
 Plug 'fatih/vim-go'                       " Go syntax files and commands
 Plug 'kchmck/vim-coffee-script'           " CoffeeScript goodies
+Plug 'AndrewRadev/vim-eco'                " https://github.com/sstephenson/eco
+
+Plug 'tpope/vim-fireplace'
+Plug 'tpope/vim-classpath'
+
+" For testing test.vim
+Plug 'benmills/vimux'
+Plug 'christoomey/vim-tmux-runner'
+Plug 'reinh/vim-makegreen'
+Plug 'skywind3000/asyncrun.vim'
+
+if has('nvim')
+  Plug 'kassio/neoterm'                   " wrapper around NeoVim's :terminal
+  Plug 'neomake/neomake'                   " asynchronous make for Neovim/Vim
+endif
 
 call plug#end()
 
@@ -137,16 +153,18 @@ set gdefault           " have :s///g flag by default on
 set splitright
 set splitbelow
 
+" Don't highlight lines longer than 200 characters
+set synmaxcol=400
+
 " Casing
 set fileignorecase     " ignore file and directory name case
 
 if has("statusline") && !&cp
   set statusline=%f\ %m\ %r                " filename, modified, readonly
   set statusline+=%y                       " filetype
-  set statusline+=%{fugitive#statusline()} " current git branch
+  " set statusline+=%{fugitive#statusline()} " current git branch
   set statusline+=\ %l/%L[%p%%]            " current line/total lines
   set statusline+=\ %v                     " current column
-  set statusline+=\ %=%{noscrollbar#statusline(20,'■','◫',['◧'],['◨'])}
 endif
 
 " SPECIFIC SETTINGS {{{1
@@ -165,20 +183,29 @@ set foldminlines=0
 
 " vim-gitgutter
 let g:gitgutter_sign_modified_removed = "~" " default is ~_, but it's cluttery
-let g:gitgutter_sign_column_always = 1
 let g:gitgutter_max_signs = 1000
+set signcolumn=yes
 
 " disable \\ mapping in vim-commentary, to get used to `gc`
 let g:commentary_map_backslash = 0
 
 " enable Markdown folding
-let g:markdown_folding = 1
+let g:markdown_fenced_languages = ['rb=ruby', 'ruby=ruby', 'erb=eruby', 'js=javascript', 'html=html', 'xml=xml', 'sql=sql']
 
 " CTRL-^ should return to the last edited file
 let g:netrw_altfile = 1
 
 " make easy-align work with comments and strings as well
 let g:easy_align_ignore_groups = [] " default is ['String', 'Comment']
+
+" don't search for relative roots
+let g:ctrlp_working_path_mode = 0
+
+" generate runner comamnds for vim-test
+let g:test#runners = {'Ruby': ['M2X']}
+let g:test#runner_commands = ['RSpec', 'Minitest', 'Cucumber', 'VSpec', 'M2X']
+
+let g:ackprg = 'rg --vimgrep'
 
 " vim-emoji
 set completefunc=emoji#complete
@@ -189,9 +216,6 @@ set wildignore+=.DS_Store,.git/**,tmp/**,*.log,.bundle/**,node_modules/**,tags
 set wildignore+=*.rbc,.rbx,*.scssc,*.sassc,.sass-cache,*.pyc,*.gem
 " ignore images
 set wildignore+=*.jpg,*.jpeg,*.tiff,*.gif,*.png,*.svg,*.psd,*.pdf
-
-" use :find for files inside a project
-set path+=**
 
 " don't search 'tags' for autocompletion, it's too slow when you have 'tags'
 " loaded from all gems
@@ -207,8 +231,12 @@ if has("autocmd")
   autocmd InsertEnter * set listchars-=trail:•
   autocmd InsertLeave * set listchars+=trail:•
 
+  " https://github.com/soveran/mote
+  autocmd BufNewFile,BufRead *.mote setf mote
+
   " Treat JSON files like JavaScript
   autocmd BufNewFile,BufRead *.json setf javascript
+  autocmd BufNewFile,BufRead *.babelrc setf javascript
 
   " https://github.com/sstephenson/bats
   autocmd BufNewFile,BufRead *.bats setf sh
@@ -220,8 +248,6 @@ if has("autocmd")
   " Don't automaticaly fold snippets
   autocmd FileType snippets setl nofoldenable
 
-  " Do automatic formatting on commit messages (but not pull requests)
-  autocmd VimEnter COMMIT_EDITMSG setl formatoptions+=a
   " Check spelling in commit messages
   autocmd FileType gitcommit setlocal spell
 
@@ -256,21 +282,52 @@ noremap \ ,
 nmap <leader><leader> <c-^>
 
 " Shortcut for running files
-nmap <leader>r :exec ":!~/bin/run " . expand("%")<cr>
+if has('nvim')
+  nmap <leader>r :call RunInTerminal('run')<cr>
+  nmap <leader>p :call RunInTerminal('run-pry')<cr>
+else
+  nmap <leader>r :exec ":!~/bin/run " . expand("%")<cr>
+  nmap <leader>p :exec ":!~/bin/run-pry " . expand("%")<cr>
+end
+
+function! RunInTerminal(script) abort
+  let current_file = expand("%")
+  -tabnew
+  call termopen("~/bin/".a:script." ".current_file)
+  startinsert
+endfunction
+
+" Shortcut for copying text syntax highlighted
+nmap <leader>s :exec ":!~/bin/syntax_highlight " . expand("%")<cr>
+
+" Shortcut for generating rdoc
+nmap <leader>d :exec ":!rake rdoc"<cr>
 
 " ruby-xmpfilter
 let g:xmpfilter_cmd = "seeing_is_believing"
 nmap <leader>R :call RunXmpFilter()<cr>
 
 function! RunXmpFilter() abort
-  if getline('.') !~ '# =>'
-    call xmpfilter#mark('n')
+  let l:line = getline('.')
+  if l:line !~ '# =>'
+    if l:line == ''
+      norm i# =>0
+      redraw
+    else
+      call xmpfilter#mark('n')
+    endif
   endif
   call xmpfilter#run('n', '-x')
 endfunction
 
 
 " OTHER MAPPINGS & COMMANDS {{{1
+
+command! -bar Qa qa
+
+command! -bar W w
+
+map <C-f> :FZF<Enter>
 
 " easier access to clipboard register
 map + "+
@@ -321,18 +378,26 @@ nmap [- yyPVr-
 " shortcut for ruby execution
 command! -bar -nargs=* P execute 'ruby p('.<q-args>.')'
 
+if has('nvim')
+  tmap <C-o> <C-\><C-n>
+endif
+
 " MACROS {{{1
 
 let @p = 'orequire "pry"; binding.pry'
 let @b = 'Irequire "benchmark"; puts Benchmark.realtime { A }'
 
+let @f = 'vii<gv<gvoO```rbgvooi```'
+let @q = 'gqip'
+
 " ABBREVIATIONS {{{1
 
-" :find
 cabbrev f find
 cabbrev F find
-cabbrev sf sfind
-cabbrev vf vert sfind
 
-" :help
-cabbrev vh vert help
+cabbrev E e
+
+cabbrev Ag Ack
+cabbrev ack Ack
+
+cabbrev Qa qa

@@ -7,15 +7,31 @@ run_file() {
 
   if [[ $1 =~ .rb$ ]]; then
 
-    if [[ -f Gemfile ]]; then
-      bundle exec ruby $1
+    if [[ -f bin/rails  ]]; then
+      rails runner $1
     else
       ruby $1
     fi
 
+  elif [[ $1 =~ .ru$ ]]; then
+
+    if [[ -f Gemfile ]]; then
+      bundle exec rackup $1
+    else
+      rackup $1
+    fi
+
+  elif [[ $1 =~ .js$ ]]; then
+
+    node $1
+
   elif [[ $1 =~ .py$ ]]; then
 
     python $1
+
+  elif [[ $1 =~ .php$ ]]; then
+
+    php -f $1
 
   elif [[ $1 =~ .c$ ]]; then
 
@@ -49,10 +65,6 @@ run_file() {
     rubber --pdf --inplace $1
 
     open "${1%.tex}.pdf"
-
-  elif [[ $1 =~ .js$ ]]; then
-
-    node $1
 
   else
 

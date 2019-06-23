@@ -12,10 +12,11 @@ for file in ~/bin/*.sh; do
   source "$file"
 done
 
-export EDITOR="vim"
+export EDITOR="nvim"
+alias vim=nvim
 
 # http://bocoup.com/weblog/shell-hacking-cdpath/
-export CDPATH="~:~/Code"
+export CDPATH="~:~/Code:~/Code/citrusbyte"
 # `brew install bash-completion2`
 if [ -f /usr/local/share/bash-completion/bash_completion ]; then
   source "/usr/local/share/bash-completion/bash_completion"
@@ -35,15 +36,13 @@ export RI="--no-pager"
 
 # List files vertically
 alias ls="ls -1"
-alias l="ls -la"
+alias ll="ls -la"
 
 # For the Go language
-export GOROOT="/usr/local/Cellar/go/1.2/libexec"
+export GOROOT="/usr/local/Cellar/go/1.9.2/libexec"
 
 # Add my scripts to PATH
 export PATH="~/bin:$PATH"
-# Add Bundler's binstubs directory to PATH
-export PATH="./bin:$PATH"
 
 # Prettier `ls` colors
 export CLICOLOR=1
@@ -53,5 +52,16 @@ export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
+# a lot of history
+export HISTSIZE=10000
+
 # https://github.com/junegunn/fzf
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+source ~/.fzf/shell/key-bindings.bash
+export FZF_DEFAULT_COMMAND='rg --files'
+
+# https://github.com/berkshelf/berkshelf
+export BERKSHELF_CHEF_CONFIG=~/.chef/knife.rb
+
+# https://github.com/asdf-vm/asdf
+source ~/.asdf/asdf.sh
+export PATH="/usr/local/opt/llvm@4/bin:$PATH"

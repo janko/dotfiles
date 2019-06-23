@@ -4,15 +4,33 @@ tags
 tmp/*
 .bundle
 *.pyc
+.ctags
 
 # Setup
 .ackrc
 TODO.md
 .projections.json
 .vimrc
+.nvimrc
 Session.vim
 
 # Vimfiles (only for this repo)
-.vim/bundle
+.vim/bundle/*
+.vim/pack/*
 .vim/.netrwhist
 .vim/flavors
+
+# Docker
+docker-compose.yml
+
+# rbenv
+.ruby-version
+
+# asdf
+.tool-versions
+
+# VSCode
+.vscode/
+
+# https://github.com/lukes/profiling
+profiling/

@@ -1,24 +1,22 @@
 [user]
-  name = Janko Marohnić
-  email = janko.marohnic@gmail.com
+	name = Janko Marohnić
+	email = janko.marohnic@gmail.com
 [github]
-  user = janko-m
+  user = janko
 [alias]
   # short and pretty status
   st = status -sb
   aa = add --all
   co = checkout
   lg = "!. ~/bin/git_helpers.sh && pretty_git_log | less -FXRS"
-  r = "!. ~/bin/git_helpers.sh && pretty_git_log -30"
+  r = "!. ~/bin/git_helpers.sh && pretty_git_log -15"
   last = "!. ~/bin/git_helpers.sh && pretty_git_log -1"
-  ci = commit
+  ci = commit -S
   rbc = rebase --continue
   rb = rebase
   br = branch
   d = diff
-[branch]
-  # new branches are setup to use rebase when pulling
-  autosetuprebase = always
+  fixup = commit --amend --reuse-message=HEAD
 [color]
   # color the git diff in the shell
   ui = auto
@@ -35,3 +33,10 @@
 [rebase]
   # use "--autosquash" in "git rebase --interactive"
   autosquash = true
+[commit]
+	gpgsign = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

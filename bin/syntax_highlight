@@ -1,0 +1,14 @@
+#!/bin/bash
+
+set -e
+
+highlight() {
+  local style="presentation"
+  local fontface="Menlo"
+  local fontsize=64
+  local lang="${1:-ruby}"
+
+  pbpaste | pygmentize -l ${lang} -P style=${style} -P fontface=${fontface} -P fontsize=${fontsize} -f rtf | pbcopy
+}
+
+highlight "${@}"

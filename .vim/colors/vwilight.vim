@@ -36,7 +36,7 @@ hi Title                        ctermfg=231  ctermbg=NONE cterm=bold         gui
 hi Underlined                   ctermfg=NONE ctermbg=NONE cterm=underline    guifg=NONE    guibg=NONE    gui=underline
 
 hi Normal                       ctermfg=231  ctermbg=234  cterm=NONE         guifg=#f8f8f8 guibg=#1f1f1f gui=NONE
-hi Comment                      ctermfg=59   ctermbg=NONE cterm=NONE         guifg=#5f5a60 guibg=NONE    gui=italic
+hi Comment                      ctermfg=242  ctermbg=NONE cterm=NONE         guifg=#5f5a60 guibg=NONE    gui=italic
 hi Boolean                      ctermfg=167  ctermbg=NONE cterm=NONE         guifg=#cf6a4c guibg=NONE    gui=NONE
 hi Character                    ctermfg=167  ctermbg=NONE cterm=NONE         guifg=#cf6a4c guibg=NONE    gui=NONE
 hi Number                       ctermfg=167  ctermbg=NONE cterm=NONE         guifg=#cf6a4c guibg=NONE    gui=NONE
@@ -156,3 +156,7 @@ hi javaTypeDef                  ctermfg=103  ctermbg=NONE cterm=NONE         gui
 
 " Cucumber
 hi cucumberTags                 ctermfg=103  ctermbg=NONE cterm=NONE         guifg=#7587a6 guibg=NONE    gui=NONE
+
+" SQL
+hi sqlKeyword                   ctermfg=179  ctermbg=NONE cterm=NONE         guifg=#cda869 guibg=NONE    gui=NONE
+hi Quote                        ctermfg=107  ctermbg=NONE cterm=NONE         guifg=#8f9d6a guibg=NONE    gui=NONE

@@ -1,0 +1,3 @@
+#!/bin/bash
+
+ruby -r "./$1" -r pry -e 'binding.pry; ""'

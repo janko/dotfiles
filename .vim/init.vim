@@ -1,0 +1,1 @@
+/Users/janko/.vimrc
