@@ -35,7 +35,9 @@ class Dive
 
   def find_stdlib
     stdlib_dir = Pathname(Gem.dir).parent.parent.join(Gem.ruby_api_version)
-    Pathname.glob(stdlib_dir.join("**/*.rb")).find { |p| p.to_s.chomp(".rb").end_with?(@name) }
+    Pathname.glob(stdlib_dir.join("**/*.rb")).find do |path|
+      path.relative_path_from(stdlib_dir).to_s.start_with?(@name)
+    end
   end
 
   def gems
