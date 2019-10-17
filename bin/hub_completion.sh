@@ -1,8 +1,13 @@
 # hub tab-completion script for bash.
 # This script complements the completion script that ships with git.
 
-# Check that git tab completion is available
-if declare -F _git > /dev/null; then
+# If there is no git tab completion, but we have the _completion loader try to load it
+if ! declare -F _git > /dev/null && declare -F _completion_loader > /dev/null; then
+  _completion_loader git
+fi
+
+# Check that git tab completion is available and we haven't already set up completion
+if declare -F _git > /dev/null && ! declare -F __git_list_all_commands_without_hub > /dev/null; then
   # Duplicate and rename the 'list_all_commands' function
   eval "$(declare -f __git_list_all_commands | \
         sed 's/__git_list_all_commands/__git_list_all_commands_without_hub/')"
@@ -12,11 +17,16 @@ if declare -F _git > /dev/null; then
     cat <<-EOF
 alias
 pull-request
+pr
+issue
+release
 fork
 create
+delete
 browse
 compare
 ci-status
+sync
 EOF
     __git_list_all_commands_without_hub
   }
@@ -54,11 +64,10 @@ EOF
   # hub browse [-u] [--|[USER/]REPOSITORY] [SUBPAGE]
   _git_browse() {
     local i c=2 u=-u repo subpage
-    local -A subpages
-    subpages["/"]="commits issues tree wiki pulls branches stargazers
+    local subpages_="commits issues tree wiki pulls branches stargazers
       contributors network network/ graphs graphs/"
-    subpages["/network"]="members"
-    subpages["/graphs"]="commit-activity code-frequency punch-card"
+    local subpages_network="members"
+    local subpages_graphs="commit-activity code-frequency punch-card"
     while [ $c -lt $cword ]; do
       i="${words[c]}"
       case "$i" in
@@ -81,10 +90,11 @@ EOF
       case "$cur" in
         */*)
           local pfx="${cur%/*}" cur_="${cur#*/}"
-          __gitcomp "${subpages[/$pfx]}" "$pfx/" "$cur_"
+          local subpages_var="subpages_$pfx"
+          __gitcomp "${!subpages_var}" "$pfx/" "$cur_"
           ;;
         *)
-          __gitcomp "$u ${subpages[/]}"
+          __gitcomp "$u ${subpages_}"
           ;;
       esac
     else
@@ -184,8 +194,9 @@ EOF
       case "$i" in
         -d|-h)
           ((c++))
+          flags=${flags/$i/}
           ;;
-        -p|-d|-h)
+        -p)
           flags=${flags/$i/}
           ;;
         *)
@@ -207,33 +218,49 @@ EOF
     esac
   }
 
-  # hub fork [--no-remote]
+  # hub fork [--no-remote] [--remote-name REMOTE] [--org ORGANIZATION]
   _git_fork() {
-    local i c=2 remote=yes
+    local i c=2 flags="--no-remote --remote-name --org"
     while [ $c -lt $cword ]; do
       i="${words[c]}"
       case "$i" in
+        --org)
+          ((c++))
+          flags=${flags/$i/}
+          ;;
+        --remote-name)
+          ((c++))
+          flags=${flags/$i/}
+          flags=${flags/--no-remote/}
+          ;;
         --no-remote)
-          unset remote
+          flags=${flags/$i/}
+          flags=${flags/--remote-name/}
           ;;
       esac
       ((c++))
     done
-    if [ -n "$remote" ]; then
-      __gitcomp "--no-remote"
-    fi
+    case "$prev" in
+      --remote-name|--org)
+        COMPREPLY=()
+        ;;
+      *)
+        __gitcomp "$flags"
+        ;;
+    esac
   }
 
-  # hub pull-request [-f] [-m <MESSAGE>|-F <FILE>|-i <ISSUE>|<ISSUE-URL>] [-b <BASE>] [-h <HEAD>]
+  # hub pull-request [-f] [-m <MESSAGE>|-F <FILE>|-i <ISSUE>|<ISSUE-URL>] [-b <BASE>] [-h <HEAD>] [-a <USER>] [-M <MILESTONE>] [-l <LABELS>]
   _git_pull_request() {
-    local i c=2 flags="-f -m -F -i -b -h"
+    local i c=2 flags="-f -m -F -i -b -h -a -M -l"
     while [ $c -lt $cword ]; do
       i="${words[c]}"
       case "$i" in
-        -m|-F|-i|-b|-h)
+        -m|-F|-i|-b|-h|-a|-M|-l)
           ((c++))
+          flags=${flags/$i/}
           ;;
-        -f|-m|-F|-i|-b|-h)
+        -f)
           flags=${flags/$i/}
           ;;
       esac
@@ -243,12 +270,15 @@ EOF
       -i)
         COMPREPLY=()
         ;;
-      -b|-h)
+      -b|-h|-a|-M|-l)
         # (Doesn't seem to need this...)
         # Uncomment the following line when 'owner/repo:[TAB]' misbehaved
         #_get_comp_words_by_ref -n : cur
         __gitcomp_nl "$(__hub_heads)"
-        __ltrim_colon_completions "$cur"
+        # __ltrim_colon_completions "$cur"
+        ;;
+      -F)
+        COMPREPLY=( "$cur"* )
         ;;
       -f|*)
         __gitcomp "$flags"
