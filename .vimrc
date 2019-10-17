@@ -89,6 +89,7 @@ Plug 'tpope/vim-rails'                    " shitloads of useful things for Rails
 
 " Other languages {{{2
 Plug 'pangloss/vim-javascript'            " JavaScript syntax files
+Plug 'leafgarland/typescript-vim'         " TypeScript syntax files
 Plug 'mxw/vim-jsx'                        " JSX support
 Plug 'othree/html5.vim'                   " adds HTML5 tags and attributes
 Plug 'tpope/vim-ragtag'                   " mappings for editing XML/HTML files
