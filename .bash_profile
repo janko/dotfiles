@@ -58,7 +58,6 @@ export LANG=en_US.UTF-8
 export HISTSIZE=10000
 
 # https://github.com/junegunn/fzf
-source ~/.fzf/shell/key-bindings.bash
 export FZF_DEFAULT_COMMAND='rg --files'
 
 # https://github.com/berkshelf/berkshelf
