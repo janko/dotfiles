@@ -8,6 +8,9 @@ fi
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init - --no-rehash)"
 
+# https://github.com/cli/cli
+eval "$(gh completion -s bash)"
+
 for file in ~/bin/*.sh; do
   source "$file"
 done
@@ -16,7 +19,7 @@ export EDITOR="nvim"
 alias vim=nvim
 
 # http://bocoup.com/weblog/shell-hacking-cdpath/
-export CDPATH="~:~/Code:~/Code/citrusbyte"
+export CDPATH=".:~/Code"
 # `brew install bash-completion2`
 if [ -f /usr/local/share/bash-completion/bash_completion ]; then
   source "/usr/local/share/bash-completion/bash_completion"
@@ -30,9 +33,6 @@ stty -ixon
 # Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-# github.com/defunkt/hub
-alias git="hub"
-
 # Don't less output from ri
 export RI="--no-pager"
 
@@ -44,7 +44,7 @@ alias ll="ls -la"
 export GOROOT="/usr/local/Cellar/go/1.9.2/libexec"
 
 # Add my scripts to PATH
-export PATH="~/bin:$PATH"
+export PATH="~/bin:~/scripts:$PATH"
 
 # Prettier `ls` colors
 export CLICOLOR=1
@@ -58,11 +58,10 @@ export LANG=en_US.UTF-8
 export HISTSIZE=10000
 
 # https://github.com/junegunn/fzf
-export FZF_DEFAULT_COMMAND='rg --files'
-
-# https://github.com/berkshelf/berkshelf
-export BERKSHELF_CHEF_CONFIG=~/.chef/knife.rb
+export FZF_DEFAULT_COMMAND="rg --files -g '!node_modules/*'"
 
 # https://github.com/asdf-vm/asdf
 source ~/.asdf/asdf.sh
-export PATH="/usr/local/opt/llvm@4/bin:$PATH"
+
+export PATH="/usr/local/opt/llvm/bin:$PATH"
+export PATH="/usr/local/opt/openssl/bin:$PATH"

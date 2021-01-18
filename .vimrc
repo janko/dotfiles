@@ -23,7 +23,10 @@ Plug 'tpope/vim-eunuch'                   " Unix-like commands (:Remove, :Rename
 Plug 'tpope/vim-projectionist'            " define connections between files
 Plug 'tpope/vim-obsession'                " saves Vim session to a file
 Plug 'tpope/vim-unimpaired'               " mappings for traversal through lists
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
+" FZF
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 
 " Searching {{{2
 Plug 'nelstrom/vim-visual-star-search'    " * and # in visual mode
@@ -79,26 +82,28 @@ Plug 'tpope/vim-characterize'             " `ga` displays more information about
 Plug 'bruno-/vim-husk'                    " emacs mappings for Vim's command line
 Plug 'bruno-/vim-man'                     " improved Man pages in Vim
 Plug 'ekalinin/Dockerfile.vim'            " Dockerfile syntax
+Plug 'chrisbra/Colorizer'                 " show hex colors
 
 " Ruby {{{2
 Plug 'vim-ruby/vim-ruby'                  " Ruby syntax files and mappings
-Plug 'tpope/vim-bundler'                  " Gemfile syntax & adds gems to tags/path
+" Plug 'tpope/vim-bundler'                  " Gemfile syntax & adds gems to tags/path
 Plug 'tpope/vim-rake'                     " :Rake command * adds stdlib to tags/path
 Plug 't9md/vim-ruby-xmpfilter'            " execute Ruby inside the buffer
 Plug 'tpope/vim-rails'                    " shitloads of useful things for Rails projects
 
 " Other languages {{{2
-Plug 'pangloss/vim-javascript'            " JavaScript syntax files
-Plug 'leafgarland/typescript-vim'         " TypeScript syntax files
-Plug 'mxw/vim-jsx'                        " JSX support
-Plug 'othree/html5.vim'                   " adds HTML5 tags and attributes
-Plug 'tpope/vim-ragtag'                   " mappings for editing XML/HTML files
-Plug 'tpope/vim-markdown'                 " Markdown syntax files
-Plug '/Users/janko/Code/vim-tex-folding'  " Folding for LaTeX documents
-Plug 'elixir-lang/vim-elixir'             " Elixir syntax files
-Plug 'fatih/vim-go'                       " Go syntax files and commands
-Plug 'kchmck/vim-coffee-script'           " CoffeeScript goodies
-Plug 'AndrewRadev/vim-eco'                " https://github.com/sstephenson/eco
+Plug 'tpope/vim-haml'                    " HAML syntax files
+Plug 'pangloss/vim-javascript'           " JavaScript syntax files
+Plug 'leafgarland/typescript-vim'        " TypeScript syntax files
+Plug 'MaxMEllon/vim-jsx-pretty'          " JSX support
+Plug 'othree/html5.vim'                  " adds HTML5 tags and attributes
+Plug 'tpope/vim-ragtag'                  " mappings for editing XML/HTML files
+Plug '/Users/janko/Code/vim-tex-folding' " Folding for LaTeX documents
+Plug 'elixir-lang/vim-elixir'            " Elixir syntax files
+Plug 'fatih/vim-go'                      " Go syntax files and commands
+Plug 'posva/vim-vue'                     " Vue syntax highlighting
+Plug 'tpope/vim-liquid'                  " liquid syntax highlighting
+Plug 'tpope/vim-markdown'                " Markdown syntax files
 
 Plug 'tpope/vim-fireplace'
 Plug 'tpope/vim-classpath'
@@ -155,7 +160,7 @@ set gdefault           " have :s///g flag by default on
 set splitright
 set splitbelow
 
-" Don't highlight lines longer than 200 characters
+" Don't highlight lines longer than 400 characters
 set synmaxcol=400
 
 " Casing
@@ -207,7 +212,7 @@ let g:ctrlp_working_path_mode = 0
 let g:test#runners = {'Ruby': ['M2X']}
 let g:test#runner_commands = ['RSpec', 'Minitest', 'Cucumber', 'VSpec', 'M2X']
 
-let g:ackprg = 'rg --vimgrep'
+let g:ackprg = 'rg -g ''!node_modules/*'' -F --vimgrep'
 
 " vim-emoji
 set completefunc=emoji#complete
@@ -215,7 +220,7 @@ set completefunc=emoji#complete
 " ignore general temp files
 set wildignore+=.DS_Store,.git/**,tmp/**,*.log,.bundle/**,node_modules/**,tags
 " ignore compiled files
-set wildignore+=*.rbc,.rbx,*.scssc,*.sassc,.sass-cache,*.pyc,*.gem
+set wildignore+=*.rbc,.rbx,*.scssc,*.sassc,.sass-cache,*.pyc,*.gem,.jekyll-cache/**
 " ignore images
 set wildignore+=*.jpg,*.jpeg,*.tiff,*.gif,*.png,*.svg,*.psd,*.pdf
 
@@ -242,6 +247,8 @@ if has("autocmd")
 
   " https://github.com/sstephenson/bats
   autocmd BufNewFile,BufRead *.bats setf sh
+
+  autocmd BufNewFile,BufRead *.pcss setf css
 
   " Don't fold the whole document in Markdown files
   autocmd FileType markdown setl foldlevel=1
@@ -305,6 +312,8 @@ nmap <leader>s :exec ":!~/bin/syntax_highlight " . expand("%")<cr>
 " Shortcut for generating rdoc
 nmap <leader>d :exec ":!rake rdoc"<cr>
 
+nmap <leader>c :exec ":!ctags -R"<cr>
+
 " ruby-xmpfilter
 let g:xmpfilter_cmd = "seeing_is_believing"
 nmap <leader>R :call RunXmpFilter()<cr>
@@ -324,6 +333,9 @@ endfunction
 
 
 " OTHER MAPPINGS & COMMANDS {{{1
+
+" disable entering into ex mode
+map Q <Nop>
 
 command! -bar Qa qa
 
@@ -400,6 +412,8 @@ cabbrev F find
 cabbrev E e
 
 cabbrev Ag Ack
+cabbrev ag Ack
 cabbrev ack Ack
 
 cabbrev Qa qa
+cabbrev Q q

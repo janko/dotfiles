@@ -82,6 +82,8 @@ hi rubyGlobalVariable           ctermfg=103  ctermbg=NONE cterm=NONE         gui
 hi rubyBlockParameter           ctermfg=103  ctermbg=NONE cterm=NONE         guifg=#7587a6 guibg=NONE    gui=NONE
 hi rubyRegexp                   ctermfg=179  ctermbg=NONE cterm=NONE         guifg=#e9c062 guibg=NONE    gui=NONE
 hi rubyRegexpDelimiter          ctermfg=179  ctermbg=NONE cterm=NONE         guifg=#e9c062 guibg=NONE    gui=NONE
+hi rubyComment                  ctermfg=242  ctermbg=NONE cterm=NONE         guifg=#5f5a60 guibg=NONE    gui=italic
+hi rubyMagicComment             ctermfg=242  ctermbg=NONE cterm=NONE         guifg=#5f5a60 guibg=NONE    gui=italic
 
 " Rails
 hi railsClass                   ctermfg=139  ctermbg=NONE cterm=NONE         guifg=#af87af guibg=NONE    gui=NONE

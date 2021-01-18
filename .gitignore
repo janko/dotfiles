@@ -1,6 +1,6 @@
 # General
 .DS_Store
-tags
+/tags
 tmp/*
 .bundle
 *.pyc

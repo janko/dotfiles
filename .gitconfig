@@ -12,6 +12,7 @@
   r = "!. ~/bin/git_helpers.sh && pretty_git_log -15"
   last = "!. ~/bin/git_helpers.sh && pretty_git_log -1"
   ci = commit -S
+  nvm = !git reset --hard HEAD && git clean -d -f
   rbc = rebase --continue
   rb = rebase
   br = branch

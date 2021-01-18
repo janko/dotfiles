@@ -1,7 +1,16 @@
-#!/bin/bash
+#!/usr/bin/env ruby
 
-if [[ -f Gemfile ]]; then
-  bundle exec ruby -r benchmark -e "puts Benchmark.realtime { require '$1' }"
-else
-  ruby -r benchmark -e "puts Benchmark.realtime { require '$1' }"
-fi
+require "bundler/setup" if File.exist?("Gemfile")
+require "benchmark"
+
+file, *dependencies = ARGV
+
+dependencies.each do |dependency|
+  require dependency
+end
+
+duration = Benchmark.realtime do
+  require file
+end
+
+puts duration
