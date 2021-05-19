@@ -11,8 +11,6 @@ set nocompatible
 
 " PLUGINS {{{1
 
-source ~/.vim/bundle/vim-plug/plug.vim
-
 call plug#begin("~/.vim/bundle")
 
 Plug 'tpope/vim-sensible'                 " sensible defaults
