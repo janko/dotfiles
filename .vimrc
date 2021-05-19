@@ -191,6 +191,9 @@ let g:gitgutter_sign_modified_removed = "~" " default is ~_, but it's cluttery
 let g:gitgutter_max_signs = 1000
 set signcolumn=yes
 
+" vim-snipmate
+let g:snipMate = { 'snippet_version' : 1 }
+
 " disable \\ mapping in vim-commentary, to get used to `gc`
 let g:commentary_map_backslash = 0
 
