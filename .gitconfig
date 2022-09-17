@@ -9,9 +9,8 @@
   st = status -sb
   aa = add --all
   co = checkout
-  lg = "!. ~/bin/git_helpers.sh && pretty_git_log | less -FXRS"
-  r = "!. ~/bin/git_helpers.sh && pretty_git_log -15"
-  last = "!. ~/bin/git_helpers.sh && pretty_git_log -1"
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset %Cgreen(%cr) %C(bold blue)<%an>%Creset -%C(yellow)%d%Creset %s' --abbrev-commit
+  r = lg -15
   ci = commit
   nvm = !git reset --hard HEAD && git clean -d -f
   rbc = rebase --continue
