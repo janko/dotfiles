@@ -1,4 +1,0 @@
---ignore-file=is:tags
---ignore-file=ext:log
---ignore-dir=tmp/
---type-set=haml=.haml
