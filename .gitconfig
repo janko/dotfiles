@@ -1,6 +1,7 @@
 [user]
 	name = Janko Marohnić
 	email = janko.marohnic@gmail.com
+	signingkey = ~/.ssh/id_rsa
 [github]
   user = janko
 [alias]
@@ -11,7 +12,7 @@
   lg = "!. ~/bin/git_helpers.sh && pretty_git_log | less -FXRS"
   r = "!. ~/bin/git_helpers.sh && pretty_git_log -15"
   last = "!. ~/bin/git_helpers.sh && pretty_git_log -1"
-  ci = commit -S
+  ci = commit
   nvm = !git reset --hard HEAD && git clean -d -f
   rbc = rebase --continue
   rb = rebase
@@ -34,10 +35,14 @@
 [rebase]
   # use "--autosquash" in "git rebase --interactive"
   autosquash = true
-[commit]
-	gpgsign = true
+[gpg]
+	format = ssh
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[init]
+	defaultBranch = main
+[commit]
+	gpgsign = true
