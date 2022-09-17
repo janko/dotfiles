@@ -23,7 +23,7 @@ Plug 'tpope/vim-obsession'                " saves Vim session to a file
 Plug 'tpope/vim-unimpaired'               " mappings for traversal through lists
 
 " FZF
-Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 " Searching {{{2
@@ -57,7 +57,6 @@ Plug 'kana/vim-textobj-user'              " helps plugins create text objects
 Plug 'wellle/targets.vim'                 " text objects on steroids
 
 " Git & GitHub {{{2
-Plug 'airblade/vim-gitgutter'             " displays Git diff in Vim's sign column
 Plug 'junegunn/vim-emoji'                 " emoji completion, useful for pull requests
 Plug 'tpope/vim-fugitive'                 " Git wrapper so awesome it should be illegal
 Plug 'tpope/vim-rhubarb'                  " omni-completion of GitHub issues and collaborators
@@ -73,7 +72,7 @@ Plug 'roxma/vim-tmux-clipboard'           " seamless integration for vim and tmu
 " Testing
 Plug 'kana/vim-vspec'                     " RSpec-like testing framework for VimScript
 Plug 'junegunn/vader.vim'                 " Cucumber-like testing framework for VimScript
-Plug '/Users/janko/Code/vim-test'         " run any kind of tests from Vim (RSpec, Cucumber, Minitest)
+Plug 'vim-test/vim-test'                  " run any kind of tests from Vim (RSpec, Cucumber, Minitest)
 
 " Misc {{{2
 Plug 'tpope/vim-characterize'             " `ga` displays more information about a character
@@ -84,7 +83,7 @@ Plug 'chrisbra/Colorizer'                 " show hex colors
 
 " Ruby {{{2
 Plug 'vim-ruby/vim-ruby'                  " Ruby syntax files and mappings
-" Plug 'tpope/vim-bundler'                  " Gemfile syntax & adds gems to tags/path
+Plug 'tpope/vim-bundler'                  " Gemfile syntax & adds gems to tags/path
 Plug 'tpope/vim-rake'                     " :Rake command * adds stdlib to tags/path
 Plug 't9md/vim-ruby-xmpfilter'            " execute Ruby inside the buffer
 Plug 'tpope/vim-rails'                    " shitloads of useful things for Rails projects
@@ -96,26 +95,11 @@ Plug 'leafgarland/typescript-vim'        " TypeScript syntax files
 Plug 'MaxMEllon/vim-jsx-pretty'          " JSX support
 Plug 'othree/html5.vim'                  " adds HTML5 tags and attributes
 Plug 'tpope/vim-ragtag'                  " mappings for editing XML/HTML files
-Plug '/Users/janko/Code/vim-tex-folding' " Folding for LaTeX documents
 Plug 'elixir-lang/vim-elixir'            " Elixir syntax files
 Plug 'fatih/vim-go'                      " Go syntax files and commands
 Plug 'posva/vim-vue'                     " Vue syntax highlighting
 Plug 'tpope/vim-liquid'                  " liquid syntax highlighting
 Plug 'tpope/vim-markdown'                " Markdown syntax files
-
-Plug 'tpope/vim-fireplace'
-Plug 'tpope/vim-classpath'
-
-" For testing test.vim
-Plug 'benmills/vimux'
-Plug 'christoomey/vim-tmux-runner'
-Plug 'reinh/vim-makegreen'
-Plug 'skywind3000/asyncrun.vim'
-
-if has('nvim')
-  Plug 'kassio/neoterm'                   " wrapper around NeoVim's :terminal
-  Plug 'neomake/neomake'                   " asynchronous make for Neovim/Vim
-endif
 
 call plug#end()
 
@@ -197,7 +181,7 @@ let g:snipMate = { 'snippet_version' : 1 }
 " disable \\ mapping in vim-commentary, to get used to `gc`
 let g:commentary_map_backslash = 0
 
-" enable Markdown folding
+" vim-markdown configuration
 let g:markdown_fenced_languages = ['rb=ruby', 'ruby=ruby', 'erb=eruby', 'js=javascript', 'html=html', 'xml=xml', 'sql=sql']
 
 " CTRL-^ should return to the last edited file
