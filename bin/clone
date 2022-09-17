@@ -1,0 +1,6 @@
+#!/bin/bash
+
+set -e
+
+gh repo clone $1 ~/Code/clones/$(basename $1)
+cd ~/Code/clones/$(basename $1)
