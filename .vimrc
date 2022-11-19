@@ -100,6 +100,7 @@ Plug 'fatih/vim-go'                      " Go syntax files and commands
 Plug 'posva/vim-vue'                     " Vue syntax highlighting
 Plug 'tpope/vim-liquid'                  " liquid syntax highlighting
 Plug 'tpope/vim-markdown'                " Markdown syntax files
+Plug 'slim-template/vim-slim'            " Slim syntax files
 
 call plug#end()
 
