@@ -195,8 +195,7 @@ let g:easy_align_ignore_groups = [] " default is ['String', 'Comment']
 let g:ctrlp_working_path_mode = 0
 
 " generate runner comamnds for vim-test
-let g:test#runners = {'Ruby': ['M2X']}
-let g:test#runner_commands = ['RSpec', 'Minitest', 'Cucumber', 'VSpec', 'M2X']
+let g:test#runner_commands = ['RSpec', 'Minitest', 'Cucumber', 'VSpec']
 
 let g:ackprg = 'rg -g ''!node_modules/*'' -F --vimgrep'
 
