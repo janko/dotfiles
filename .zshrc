@@ -37,5 +37,6 @@ export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 eval "$(starship init zsh)"
 
 export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1
+export HOMEBREW_INSTALL_FROM_API=1
 
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
